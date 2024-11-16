@@ -1,0 +1,452 @@
+[
+  {
+    "id": 1,
+    "time": "2024-11-16 13:37:21",
+    "action": "Dodano zadanie",
+    "details": "id:[22] (sv)"
+  },
+  {
+    "id": 2,
+    "time": "2024-11-16 13:37:27",
+    "action": "Usunięto zadanie",
+    "details": "id:[21] (ca)"
+  },
+  {
+    "id": 3,
+    "time": "2024-11-16 13:37:28",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 1,
+    "time": "2024-11-16 13:38:10",
+    "action": "Dodano zadanie",
+    "details": "id:[23] ()"
+  },
+  {
+    "id": 2,
+    "time": "2024-11-16 13:38:17",
+    "action": "Usunięto zadanie",
+    "details": "id:[23] ()"
+  },
+  {
+    "id": 3,
+    "time": "2024-11-16 13:38:21",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 4,
+    "time": "2024-11-16 13:39:14",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 5,
+    "time": "2024-11-16 13:39:19",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 6,
+    "time": "2024-11-16 13:40:01",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 7,
+    "time": "2024-11-16 13:40:03",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 8,
+    "time": "2024-11-16 13:41:06",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 9,
+    "time": "2024-11-16 13:41:08",
+    "action": "Dodano zadanie",
+    "details": "id:[24] (ge)"
+  },
+  {
+    "id": 10,
+    "time": "2024-11-16 13:41:18",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 11,
+    "time": "2024-11-16 13:42:16",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 12,
+    "time": "2024-11-16 13:42:18",
+    "action": "Dodano zadanie",
+    "details": "id:[25] (eg)"
+  },
+  {
+    "id": 13,
+    "time": "2024-11-16 13:42:33",
+    "action": "Dodano zadanie",
+    "details": "id:[26] ()"
+  },
+  {
+    "id": 14,
+    "time": "2024-11-16 13:42:38",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 15,
+    "time": "2024-11-16 13:43:13",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 16,
+    "time": "2024-11-16 13:43:56",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 17,
+    "time": "2024-11-16 13:44:08",
+    "action": "Dodano zadanie",
+    "details": "id:[27] (siemka)"
+  },
+  {
+    "id": 18,
+    "time": "2024-11-16 13:44:26",
+    "action": "Dodano zadanie",
+    "details": "id:[28] (siemkadat)"
+  },
+  {
+    "id": 19,
+    "time": "2024-11-16 13:44:32",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 20,
+    "time": "2024-11-16 13:46:12",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 21,
+    "time": "2024-11-16 13:46:15",
+    "action": "Dodano zadanie",
+    "details": "id:[29] (ad), Kategoria: , Priorytet: , Termin: , Utworzone: 2024-11-16 13:46:15"
+  },
+  {
+    "id": 22,
+    "time": "2024-11-16 13:46:18",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 23,
+    "time": "2024-11-16 13:48:27",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 24,
+    "time": "2024-11-16 13:48:30",
+    "action": "Dodano zadanie",
+    "details": "id:[30] (fs), Kategoria: , Priorytet: , Termin: , Utworzone: 2024-11-16 13:48:30"
+  },
+  {
+    "id": 25,
+    "time": "2024-11-16 13:48:31",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 26,
+    "time": "2024-11-16 13:57:56",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 27,
+    "time": "2024-11-16 13:58:27",
+    "action": "Dodano zadanie",
+    "details": "id:[31] (x), Kategoria: , Priorytet: bardzo ważne, Termin: , Utworzone: 2024-11-16 13:58:27"
+  },
+  {
+    "id": 28,
+    "time": "2024-11-16 13:58:30",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 29,
+    "time": "2024-11-16 14:00:49",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 30,
+    "time": "2024-11-16 14:06:16",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 31,
+    "time": "2024-11-16 14:06:23",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 32,
+    "time": "2024-11-16 14:08:08",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 33,
+    "time": "2024-11-16 14:08:35",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 34,
+    "time": "2024-11-16 14:08:48",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 35,
+    "time": "2024-11-16 14:08:55",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 36,
+    "time": "2024-11-16 14:11:52",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 37,
+    "time": "2024-11-16 14:12:05",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 38,
+    "time": "2024-11-16 14:13:11",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 39,
+    "time": "2024-11-16 14:13:17",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 40,
+    "time": "2024-11-16 14:13:34",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 41,
+    "time": "2024-11-16 14:13:42",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 42,
+    "time": "2024-11-16 14:13:58",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 43,
+    "time": "2024-11-16 14:14:23",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 44,
+    "time": "2024-11-16 14:15:19",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 45,
+    "time": "2024-11-16 14:15:35",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 46,
+    "time": "2024-11-16 14:16:20",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 47,
+    "time": "2024-11-16 14:16:31",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 48,
+    "time": "2024-11-16 14:17:52",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 49,
+    "time": "2024-11-16 14:18:27",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 50,
+    "time": "2024-11-16 14:18:33",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 51,
+    "time": "2024-11-16 14:18:43",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 52,
+    "time": "2024-11-16 14:19:05",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 53,
+    "time": "2024-11-16 14:19:29",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 54,
+    "time": "2024-11-16 14:19:45",
+    "action": "Dodano zadanie",
+    "details": "id:[32] (test12), Kategoria: testowa, Priorytet: *bez priorytetu*, Termin: 2024-12-53, Utworzone: 2024-11-16 14:19:45"
+  },
+  {
+    "id": 55,
+    "time": "2024-11-16 14:19:53",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 56,
+    "time": "2024-11-16 14:21:39",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 57,
+    "time": "2024-11-16 14:21:46",
+    "action": "Dodano zadanie",
+    "details": "id:[33] (sieasdafads), Kategoria: , Priorytet: *bez priorytetu*, Termin: , Utworzone: 2024-11-16 14:21:46"
+  },
+  {
+    "id": 58,
+    "time": "2024-11-16 14:21:54",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 59,
+    "time": "2024-11-16 14:22:18",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 60,
+    "time": "2024-11-16 14:22:26",
+    "action": "Dodano zadanie",
+    "details": "id:[34] (safd), Kategoria: , Priorytet: *bez priorytetu*, Termin: , Utworzone: 2024-11-16 14:22:26"
+  },
+  {
+    "id": 61,
+    "time": "2024-11-16 14:22:34",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 62,
+    "time": "2024-11-16 14:22:38",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 63,
+    "time": "2024-11-16 14:22:42",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 64,
+    "time": "2024-11-16 14:23:23",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 65,
+    "time": "2024-11-16 14:24:03",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 66,
+    "time": "2024-11-16 14:27:25",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 67,
+    "time": "2024-11-16 14:28:04",
+    "action": "Dodano zadanie",
+    "details": "id:[35] (afa), Kategoria: , Priorytet: bez priorytetu, Termin: , Utworzone: 2024-11-16 14:28:04"
+  },
+  {
+    "id": 68,
+    "time": "2024-11-16 14:28:07",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 69,
+    "time": "2024-11-16 14:29:08",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 70,
+    "time": "2024-11-16 14:29:24",
+    "action": "Dodano zadanie",
+    "details": "id:[36] (cz), Kategoria: , Priorytet: *bez priorytetu*, Termin: , Utworzone: 2024-11-16 14:29:24"
+  },
+  {
+    "id": 71,
+    "time": "2024-11-16 14:29:39",
+    "action": "Dodano zadanie",
+    "details": "id:[37] (czcazcacacaacaxcaxcz), Kategoria: zc, Priorytet: *bez priorytetu*, Termin: , Utworzone: 2024-11-16 14:29:39"
+  },
+  {
+    "id": 72,
+    "time": "2024-11-16 14:29:45",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
+  }
+]
