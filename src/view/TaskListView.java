@@ -53,9 +53,9 @@ public class TaskListView {
             panel.addComponent(new Label(taskRow));
         }
 
-        // Informacja o numerze strony
+        // Informacja o numerze strony i liczbie wszystkich zadań
         int totalPages = (int) Math.ceil((double) tasks.size() / MAX_VISIBLE_ROWS);
-        panel.addComponent(new Label(String.format("Strona %d z %d", pageIndex + 1, totalPages)));
+        panel.addComponent(new Label(String.format("Strona %d z %d (łącznie zadań: %d)", pageIndex + 1, totalPages, tasks.size())));
 
         // Panel z przyciskami nawigacji
         Panel navigationPanel = new Panel(Orientation.HORISONTAL);
@@ -101,11 +101,11 @@ public class TaskListView {
             long days = ChronoUnit.DAYS.between(currentDate, deadlineDate);
 
             if (days > 999) {
-                return "(>999d)";
+                return ">999d";
             } else if (days < -999) {
-                return "(<-999d)";
+                return ">-999d";
             } else {
-                return days >= 0 ? String.format("(%dd)", days) : String.format("(-%dd)", Math.abs(days));
+                return days >= 0 ? String.format("%dd", days) : String.format("-%dd", Math.abs(days));
             }
         } catch (Exception e) {
             return "Nieprawidłowy";
