@@ -115,4 +115,41 @@ public class TaskController {
                 .toList();
     }
 
+    public boolean editTaskById(int id, String newName, String newCategory, String newDeadline, String newPriority) {
+        Task taskToEdit = tasks.stream().filter(task -> task.getId() == id).findFirst().orElse(null);
+        if (taskToEdit != null) {
+            editTaskFields(taskToEdit, newName, newCategory, newDeadline, newPriority);
+            saveTasks();
+            Logger.log("Edytowano zadanie", "id:[" + taskToEdit.getId() + "] (" + taskToEdit.getName() + ")");
+            return true;
+        }
+        return false;
+    }
+
+    public boolean editTaskByName(String name, String newName, String newCategory, String newDeadline, String newPriority) {
+        Task taskToEdit = tasks.stream().filter(task -> task.getName().equalsIgnoreCase(name)).findFirst().orElse(null);
+        if (taskToEdit != null) {
+            editTaskFields(taskToEdit, newName, newCategory, newDeadline, newPriority);
+            saveTasks();
+            Logger.log("Edytowano zadanie", "id:[" + taskToEdit.getId() + "] (" + taskToEdit.getName() + ")");
+            return true;
+        }
+        return false;
+    }
+
+    // Prywatna metoda pomocnicza do edycji pól zadania
+    private void editTaskFields(Task task, String newName, String newCategory, String newDeadline, String newPriority) {
+        if (newName != null && !newName.isEmpty()) {
+            task.setName(newName);
+        }
+        if (newCategory != null && !newCategory.isEmpty()) {
+            task.setCategory(newCategory);
+        }
+        if (newDeadline != null && !newDeadline.isEmpty()) {
+            task.setDeadline(newDeadline);
+        }
+        if (newPriority != null && !newPriority.isEmpty()) {
+            task.setPriority(newPriority);
+        }
+    }
 }

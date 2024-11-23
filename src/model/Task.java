@@ -30,4 +30,21 @@ public class Task implements Serializable {
     public String getDeadline() { return deadline; }
     public String getPriority() { return priority; }
     public String getCreationTime() { return creationTime; }  // Getter dla daty i godziny
+
+    // Settery
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public void setDeadline(String deadline) {
+        this.deadline = deadline;
+    }
+
+    public void setPriority(String priority) {
+        this.priority = priority;
+    }
 }

@@ -27,6 +27,7 @@ public class MainMenuView {
         panel.addComponent(new Label("Witaj w Organizerium!"));
         panel.addComponent(new Button("Dodaj zadanie", this::showAddTask));
         panel.addComponent(new Button("Pokaż zadania", this::showTaskList));
+        panel.addComponent(new Button("Edytuj zadanie", this::showEditTaskMenu));;
         panel.addComponent(new Button("Usuń zadanie", this::showDeleteTaskMenu));
 
         // Nowy przycisk "Wyłącz aplikację"
@@ -42,6 +43,10 @@ public class MainMenuView {
 
     private void showTaskList() {
         new TaskListView(controller, guiScreen).show();
+    }
+
+    private void showEditTaskMenu() {
+        new TaskEditView(controller, guiScreen).show();
     }
 
     private void showDeleteTaskMenu() {

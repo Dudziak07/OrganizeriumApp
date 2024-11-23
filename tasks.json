@@ -162,5 +162,21 @@
     "deadline": "2024-11-09",
     "priority": "*bez priorytetu*",
     "creationTime": "2024-11-23 12:18:08"
+  },
+  {
+    "id": 43,
+    "name": "test zmiany",
+    "category": "siemka",
+    "deadline": "2022-08-29",
+    "priority": "bez pośpiechu",
+    "creationTime": "2024-11-23 12:38:37"
+  },
+  {
+    "id": 44,
+    "name": "test",
+    "category": "",
+    "deadline": "",
+    "priority": "ważne",
+    "creationTime": "2024-11-23 12:40:19"
   }
 ]

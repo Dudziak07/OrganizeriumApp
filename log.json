@@ -670,5 +670,65 @@
     "time": "2024-11-23 12:33:10",
     "action": "Wyłączono aplikację",
     "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 110,
+    "time": "2024-11-23 12:38:28",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 111,
+    "time": "2024-11-23 12:38:37",
+    "action": "Dodano zadanie",
+    "details": "id:[43] (fws), Kategoria: , Priorytet: bez pośpiechu, Termin: , Utworzone: 2024-11-23 12:38:37"
+  },
+  {
+    "id": 112,
+    "time": "2024-11-23 12:39:06",
+    "action": "Edytowano zadanie",
+    "details": "id:[43] (test zmiany)"
+  },
+  {
+    "id": 113,
+    "time": "2024-11-23 12:39:18",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 114,
+    "time": "2024-11-23 12:40:00",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 115,
+    "time": "2024-11-23 12:40:05",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 116,
+    "time": "2024-11-23 12:40:16",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 117,
+    "time": "2024-11-23 12:40:19",
+    "action": "Dodano zadanie",
+    "details": "id:[44] (egvs), Kategoria: , Priorytet: *bez priorytetu*, Termin: , Utworzone: 2024-11-23 12:40:19"
+  },
+  {
+    "id": 118,
+    "time": "2024-11-23 12:40:30",
+    "action": "Edytowano zadanie",
+    "details": "id:[44] (test)"
+  },
+  {
+    "id": 119,
+    "time": "2024-11-23 12:40:38",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
   }
 ]
