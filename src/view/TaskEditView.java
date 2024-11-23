@@ -1,7 +1,6 @@
 package view;
 
 import controller.TaskController;
-import model.Task;
 import com.googlecode.lanterna.gui.GUIScreen;
 import com.googlecode.lanterna.gui.Window;
 import com.googlecode.lanterna.gui.component.*;
@@ -33,7 +32,7 @@ public class TaskEditView {
         Button editByIdButton = new Button("Edytuj po ID", () -> {
             try {
                 int id = Integer.parseInt(idInput.getText());
-                editTask(id, null);
+                editTask(id, null, window);
             } catch (NumberFormatException e) {
                 showError("Nieprawidłowy format ID");
             }
@@ -47,7 +46,7 @@ public class TaskEditView {
                 showError("Nazwa zadania jest wymagana");
                 return;
             }
-            editTask(0, name);
+            editTask(0, name, window);
         });
 
         panel.addComponent(editByIdButton);
@@ -60,7 +59,7 @@ public class TaskEditView {
         guiScreen.showWindow(window, GUIScreen.Position.CENTER);
     }
 
-    private void editTask(int id, String name) {
+    private void editTask(int id, String name, Window parentWindow) {
         Window editWindow = new Window("Wprowadź nowe dane");
         Panel editPanel = new Panel(Panel.Orientation.VERTICAL);
 
@@ -101,7 +100,17 @@ public class TaskEditView {
             }
             if (success) {
                 editWindow.close();
-                show();
+                parentWindow.close();
+
+                // Tworzenie nowego okna z komunikatem o sukcesie
+                Window successWindow = new Window("Sukces");
+                Panel successPanel = new Panel(Panel.Orientation.VERTICAL);
+                successPanel.addComponent(new Label("Zadanie zostało pomyślnie zaktualizowane!"));
+                Button closeSuccessButton = new Button("OK", successWindow::close);
+                successPanel.addComponent(closeSuccessButton);
+                successWindow.addComponent(successPanel);
+
+                guiScreen.showWindow(successWindow, GUIScreen.Position.CENTER);
             } else {
                 showError("Nie znaleziono zadania");
             }

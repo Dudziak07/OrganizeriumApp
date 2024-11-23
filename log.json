@@ -934,5 +934,23 @@
     "time": "2024-11-23 14:09:00",
     "action": "Wyłączono aplikację",
     "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 154,
+    "time": "2024-11-23 14:12:36",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 155,
+    "time": "2024-11-23 14:12:54",
+    "action": "Edytowano zadanie",
+    "details": "id:[36] (zmiana dziala?)"
+  },
+  {
+    "id": 156,
+    "time": "2024-11-23 14:13:01",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
   }
 ]
