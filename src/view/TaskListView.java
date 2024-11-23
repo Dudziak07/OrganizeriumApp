@@ -18,12 +18,20 @@ public class TaskListView {
     private final TaskController controller;
     private final GUIScreen guiScreen;
 
+    // Maksymalna liczba wierszy na jedną stronę
+    private static final int MAX_VISIBLE_ROWS = 15;
+
     public TaskListView(TaskController controller, GUIScreen guiScreen) {
         this.controller = controller;
         this.guiScreen = guiScreen;
     }
 
     public void show() {
+        List<Task> tasks = controller.getTasks();
+        showPage(tasks, 0); // Rozpoczynamy od pierwszej strony
+    }
+
+    private void showPage(List<Task> tasks, int pageIndex) {
         Window window = new Window("Lista zadań");
         Panel panel = new Panel(Orientation.VERTICAL);
 
@@ -33,9 +41,11 @@ public class TaskListView {
         panel.addComponent(new Label(headers));
         panel.addComponent(new Label("=".repeat(headers.length())));  // Linie pod nagłówkami
 
-        // Wyświetlanie listy zadań w formie tabeli
-        List<Task> tasks = controller.getTasks();
-        for (Task task : tasks) {
+        // Wyświetlanie zadań dla danej strony
+        int startIndex = pageIndex * MAX_VISIBLE_ROWS;
+        int endIndex = Math.min(startIndex + MAX_VISIBLE_ROWS, tasks.size());
+        for (int i = startIndex; i < endIndex; i++) {
+            Task task = tasks.get(i);
             String daysUntilDeadline = calculateDaysUntilDeadline(task.getDeadline());
             String taskRow = String.format("%-5d %-21s %-17s %-21s %-9s %-12s %-20s",
                     task.getId(), task.getName(), task.getPriority(), task.getCategory(),
@@ -43,8 +53,36 @@ public class TaskListView {
             panel.addComponent(new Label(taskRow));
         }
 
+        // Informacja o numerze strony
+        int totalPages = (int) Math.ceil((double) tasks.size() / MAX_VISIBLE_ROWS);
+        panel.addComponent(new Label(String.format("Strona %d z %d", pageIndex + 1, totalPages)));
+
+        // Panel z przyciskami nawigacji
+        Panel navigationPanel = new Panel(Orientation.HORISONTAL);
+
+        if (pageIndex > 0) {
+            Button prevButton = new Button("Poprzednia strona", () -> {
+                window.close();
+                showPage(tasks, pageIndex - 1);
+            });
+            navigationPanel.addComponent(prevButton);
+        }
+
+        if (endIndex < tasks.size()) {
+            Button nextButton = new Button("Następna strona", () -> {
+                window.close();
+                showPage(tasks, pageIndex + 1);
+            });
+            navigationPanel.addComponent(nextButton);
+        }
+
+        panel.addComponent(navigationPanel);
+
+        // Przycisk powrotu
         Button backButton = new Button("Powrót", window::close);
         panel.addComponent(backButton);
+
+        // Dodanie panelu do okna
         window.addComponent(panel);
         guiScreen.showWindow(window, GUIScreen.Position.CENTER);
     }
