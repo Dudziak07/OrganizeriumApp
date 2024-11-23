@@ -178,5 +178,13 @@
     "deadline": "",
     "priority": "ważne",
     "creationTime": "2024-11-23 12:40:19"
+  },
+  {
+    "id": 45,
+    "name": "db",
+    "category": "",
+    "deadline": "",
+    "priority": "*bez priorytetu*",
+    "creationTime": "2024-11-23 12:45:12"
   }
 ]

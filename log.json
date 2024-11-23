@@ -730,5 +730,17 @@
     "time": "2024-11-23 12:40:38",
     "action": "Wyłączono aplikację",
     "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 120,
+    "time": "2024-11-23 12:45:04",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 121,
+    "time": "2024-11-23 12:45:12",
+    "action": "Dodano zadanie",
+    "details": "id:[45] (db), Kategoria: , Priorytet: *bez priorytetu*, Termin: , Utworzone: 2024-11-23 12:45:12"
   }
 ]
