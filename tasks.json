@@ -8,7 +8,7 @@
   },
   {
     "id": 16,
-    "name": "safad",
+    "name": "zmiana nazwy",
     "category": "",
     "deadline": "",
     "priority": ""
@@ -25,13 +25,6 @@
     "name": "faa",
     "category": "",
     "deadline": "af",
-    "priority": ""
-  },
-  {
-    "id": 20,
-    "name": "ca",
-    "category": "",
-    "deadline": "",
     "priority": ""
   },
   {
@@ -56,14 +49,6 @@
     "deadline": "",
     "priority": "",
     "creationTime": "2024-11-16 13:42:18"
-  },
-  {
-    "id": 26,
-    "name": "",
-    "category": "",
-    "deadline": "",
-    "priority": "",
-    "creationTime": "2024-11-16 13:42:33"
   },
   {
     "id": 27,
@@ -152,5 +137,21 @@
     "deadline": "",
     "priority": "*bez priorytetu*",
     "creationTime": "2024-11-16 14:29:39"
+  },
+  {
+    "id": 38,
+    "name": "cc",
+    "category": "nic",
+    "deadline": "1999-01-08",
+    "priority": "*bez priorytetu*",
+    "creationTime": "2024-11-16 15:43:37"
+  },
+  {
+    "id": 39,
+    "name": "fft",
+    "category": "",
+    "deadline": "",
+    "priority": "*bez priorytetu*",
+    "creationTime": "2024-11-17 08:25:41"
   }
 ]
