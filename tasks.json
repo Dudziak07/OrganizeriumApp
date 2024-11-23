@@ -21,13 +21,6 @@
     "priority": ""
   },
   {
-    "id": 19,
-    "name": "faa",
-    "category": "",
-    "deadline": "af",
-    "priority": ""
-  },
-  {
     "id": 22,
     "name": "sv",
     "category": "",
@@ -91,14 +84,6 @@
     "creationTime": "2024-11-16 13:58:27"
   },
   {
-    "id": 32,
-    "name": "test12",
-    "category": "testowa",
-    "deadline": "2024-12-53",
-    "priority": "*bez priorytetu*",
-    "creationTime": "2024-11-16 14:19:45"
-  },
-  {
     "id": 33,
     "name": "sieasdafads",
     "category": "",
@@ -153,5 +138,29 @@
     "deadline": "",
     "priority": "*bez priorytetu*",
     "creationTime": "2024-11-17 08:25:41"
+  },
+  {
+    "id": 40,
+    "name": "waf",
+    "category": "",
+    "deadline": "",
+    "priority": "*bez priorytetu*",
+    "creationTime": "2024-11-23 10:43:16"
+  },
+  {
+    "id": 41,
+    "name": "fsad",
+    "category": "",
+    "deadline": "2024-11-25",
+    "priority": "bardzo ważne",
+    "creationTime": "2024-11-23 12:17:58"
+  },
+  {
+    "id": 42,
+    "name": "1421",
+    "category": "",
+    "deadline": "2024-11-09",
+    "priority": "*bez priorytetu*",
+    "creationTime": "2024-11-23 12:18:08"
   }
 ]

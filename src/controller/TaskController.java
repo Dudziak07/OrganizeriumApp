@@ -9,6 +9,9 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
 import java.lang.reflect.Type;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -90,4 +93,26 @@ public class TaskController {
             e.printStackTrace();
         }
     }
+
+    public List<String> getTasksWithDeadlineInfo() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate currentDate = LocalDate.now();
+
+        return tasks.stream()
+                .map(task -> {
+                    String deadlineInfo;
+                    try {
+                        LocalDate deadlineDate = LocalDate.parse(task.getDeadline(), formatter);
+                        long days = ChronoUnit.DAYS.between(currentDate, deadlineDate);
+                        deadlineInfo = days >= 0 ? String.format("%s (%dd)", task.getDeadline(), days)
+                                : String.format("%s (%dd)", task.getDeadline(), days);
+                    } catch (Exception e) {
+                        deadlineInfo = task.getDeadline() + " (nieprawidłowy termin)";
+                    }
+                    return String.format("ID: %d, Nazwa: %s, Priorytet: %s, Kategoria: %s, Termin: %s, Data utworzenia: %s",
+                            task.getId(), task.getName(), task.getPriority(), task.getCategory(), deadlineInfo, task.getCreationTime());
+                })
+                .toList();
+    }
+
 }
