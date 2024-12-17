@@ -54,6 +54,7 @@ public class MainMenuView {
 
     // Metoda przełączająca na tryb graficzny
     private void switchToGraphicalMode() {
+        Logger.log("Przełączanie trybu", "Przełączono na tryb graficzny");
         guiScreen.getScreen().stopScreen(); // Zamknij ekran Lanterna
         new Thread(() -> {
             new view.GraphicalView(controller).show(); // Uruchom tryb graficzny
@@ -62,7 +63,7 @@ public class MainMenuView {
 
     // Metoda zamykająca aplikację
     private void exitApplication() {
-        Logger.log("Wyłączono aplikację", "Program został zamknięty przez użytkownika");
+        Logger.log("Zamknięcie aplikacji", "Aplikacja została zamknięta z trybu tekstowego");
         guiScreen.getScreen().stopScreen();  // Zatrzymuje ekran Lanterna
         System.exit(0);  // Kończy działanie programu
     }

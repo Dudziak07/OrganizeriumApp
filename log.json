@@ -1084,5 +1084,167 @@
     "time": "2024-12-17 20:14:15",
     "action": "Wyłączono aplikację",
     "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 179,
+    "time": "2024-12-17 20:34:10",
+    "action": "Tryb graficzny uruchomiony",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 180,
+    "time": "2024-12-17 20:34:13",
+    "action": "Przełączanie trybu",
+    "details": "Przełączono na tryb tekstowy"
+  },
+  {
+    "id": 181,
+    "time": "2024-12-17 20:34:16",
+    "action": "Przełączanie trybu",
+    "details": "Przełączono na tryb graficzny"
+  },
+  {
+    "id": 182,
+    "time": "2024-12-17 20:34:16",
+    "action": "Tryb graficzny uruchomiony",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 183,
+    "time": "2024-12-17 20:35:44",
+    "action": "Tryb graficzny uruchomiony",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 184,
+    "time": "2024-12-17 20:35:46",
+    "action": "Przełączanie trybu",
+    "details": "Przełączono na tryb tekstowy"
+  },
+  {
+    "id": 185,
+    "time": "2024-12-17 20:35:48",
+    "action": "Przełączanie trybu",
+    "details": "Przełączono na tryb graficzny"
+  },
+  {
+    "id": 186,
+    "time": "2024-12-17 20:35:48",
+    "action": "Tryb graficzny uruchomiony",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 187,
+    "time": "2024-12-17 20:35:51",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta z trybu graficznego"
+  },
+  {
+    "id": 188,
+    "time": "2024-12-17 20:37:57",
+    "action": "Tryb graficzny uruchomiony",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 189,
+    "time": "2024-12-17 20:38:00",
+    "action": "Przełączanie trybu",
+    "details": "Przełączono na tryb tekstowy"
+  },
+  {
+    "id": 190,
+    "time": "2024-12-17 20:38:03",
+    "action": "Przełączanie trybu",
+    "details": "Przełączono na tryb graficzny"
+  },
+  {
+    "id": 191,
+    "time": "2024-12-17 20:38:05",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta z trybu graficznego"
+  },
+  {
+    "id": 192,
+    "time": "2024-12-17 20:40:44",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 193,
+    "time": "2024-12-17 20:40:47",
+    "action": "Przełączanie trybu",
+    "details": "Przełączono na tryb tekstowy"
+  },
+  {
+    "id": 194,
+    "time": "2024-12-17 20:40:50",
+    "action": "Przełączanie trybu",
+    "details": "Przełączono na tryb graficzny"
+  },
+  {
+    "id": 195,
+    "time": "2024-12-17 20:40:55",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta z trybu graficznego"
+  },
+  {
+    "id": 196,
+    "time": "2024-12-17 20:42:14",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 197,
+    "time": "2024-12-17 20:42:15",
+    "action": "Przełączanie trybu",
+    "details": "Przełączono na tryb tekstowy"
+  },
+  {
+    "id": 198,
+    "time": "2024-12-17 20:42:15",
+    "action": "Przełączanie trybu",
+    "details": "Przełączono na tryb tekstowy"
+  },
+  {
+    "id": 199,
+    "time": "2024-12-17 20:42:18",
+    "action": "Przełączanie trybu",
+    "details": "Przełączono na tryb graficzny"
+  },
+  {
+    "id": 200,
+    "time": "2024-12-17 20:42:44",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 201,
+    "time": "2024-12-17 20:42:59",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta z trybu graficznego"
+  },
+  {
+    "id": 202,
+    "time": "2024-12-17 20:54:03",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 203,
+    "time": "2024-12-17 20:54:08",
+    "action": "Przełączanie trybu",
+    "details": "Przełączono na tryb tekstowy"
+  },
+  {
+    "id": 204,
+    "time": "2024-12-17 20:54:10",
+    "action": "Przełączanie trybu",
+    "details": "Przełączono na tryb graficzny"
+  },
+  {
+    "id": 205,
+    "time": "2024-12-17 20:54:20",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta z trybu graficznego"
   }
 ]
