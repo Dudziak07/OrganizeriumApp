@@ -1426,5 +1426,35 @@
     "time": "2024-12-17 22:10:30",
     "action": "Zamknięcie aplikacji",
     "details": "Aplikacja została zamknięta przez użytkownika"
+  },
+  {
+    "id": 236,
+    "time": "2024-12-17 22:17:18",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 237,
+    "time": "2024-12-17 22:17:30",
+    "action": "Dodano zadanie",
+    "details": "id:[53] (test), Kategoria: , Priorytet: bardzo ważne, Termin: , Utworzone: 2024-12-17 22:17:30"
+  },
+  {
+    "id": 238,
+    "time": "2024-12-17 22:17:35",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta przez użytkownika"
+  },
+  {
+    "id": 239,
+    "time": "2024-12-17 22:18:10",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 240,
+    "time": "2024-12-17 22:18:16",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta z trybu graficznego"
   }
 ]

@@ -57,7 +57,7 @@ public class MainMenuView {
         Logger.log("Przełączanie trybu", "Przełączono na tryb graficzny");
         guiScreen.getScreen().stopScreen(); // Zamknij ekran Lanterna
         new Thread(() -> {
-            new view.GraphicalView(controller).show(); // Uruchom tryb graficzny
+            new GraphicalMenuView(controller).show(); // Uruchom tryb graficzny
         }).start();
     }
 

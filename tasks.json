@@ -234,5 +234,13 @@
     "deadline": "2024-12-17",
     "priority": "bardzo ważne",
     "creationTime": "2024-12-17 22:08:33"
+  },
+  {
+    "id": 53,
+    "name": "test",
+    "category": "",
+    "deadline": "",
+    "priority": "bardzo ważne",
+    "creationTime": "2024-12-17 22:17:30"
   }
 ]
