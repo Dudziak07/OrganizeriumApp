@@ -29,8 +29,7 @@ public class MainMenuView {
         panel.addComponent(new Button("Pokaż zadania", this::showTaskList));
         panel.addComponent(new Button("Edytuj zadanie", this::showEditTaskMenu));;
         panel.addComponent(new Button("Usuń zadanie", this::showDeleteTaskMenu));
-
-        // Nowy przycisk "Wyłącz aplikację"
+        panel.addComponent(new Button("Przełącz na tryb graficzny", this::switchToGraphicalMode));
         panel.addComponent(new Button("Wyłącz aplikację", this::exitApplication));
 
         window.addComponent(panel);
@@ -51,6 +50,14 @@ public class MainMenuView {
 
     private void showDeleteTaskMenu() {
         new TaskDeleteView(controller, guiScreen).show();
+    }
+
+    // Metoda przełączająca na tryb graficzny
+    private void switchToGraphicalMode() {
+        guiScreen.getScreen().stopScreen(); // Zamknij ekran Lanterna
+        new Thread(() -> {
+            new view.GraphicalView(controller).show(); // Uruchom tryb graficzny
+        }).start();
     }
 
     // Metoda zamykająca aplikację

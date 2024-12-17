@@ -29,7 +29,7 @@ public class GraphicalView {
         frame.setJMenuBar(menuBar);
 
         // Nagłówek
-        JLabel headerLabel = new JLabel("OrganizeriumApp - Zarządzaj Zadaniami", SwingConstants.CENTER);
+        JLabel headerLabel = new JLabel("Organizerium - Menu Główne", SwingConstants.CENTER);
         headerLabel.setFont(new Font("Arial", Font.BOLD, 24));
         frame.add(headerLabel, BorderLayout.NORTH);
 
