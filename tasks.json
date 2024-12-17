@@ -210,5 +210,29 @@
     "deadline": "2024-11-23",
     "priority": "ważne",
     "creationTime": "2024-11-23 18:10:08"
+  },
+  {
+    "id": 50,
+    "name": "Test graficzny",
+    "category": "TEST",
+    "deadline": "2024-12-17",
+    "priority": "Ważne",
+    "creationTime": "2024-12-17 21:49:23"
+  },
+  {
+    "id": 51,
+    "name": "Test graficzny",
+    "category": "",
+    "deadline": "",
+    "priority": "bez priorytetu",
+    "creationTime": "2024-12-17 22:08:12"
+  },
+  {
+    "id": 52,
+    "name": "Test graficzny",
+    "category": "TEST",
+    "deadline": "2024-12-17",
+    "priority": "bardzo ważne",
+    "creationTime": "2024-12-17 22:08:33"
   }
 ]
