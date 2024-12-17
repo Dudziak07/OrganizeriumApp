@@ -1288,5 +1288,29 @@
     "time": "2024-12-17 21:13:05",
     "action": "Zamknięcie aplikacji",
     "details": "Aplikacja została zamknięta przez użytkownika"
+  },
+  {
+    "id": 213,
+    "time": "2024-12-17 21:18:02",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 214,
+    "time": "2024-12-17 21:18:05",
+    "action": "Przełączanie trybu",
+    "details": "Przełączono na tryb tekstowy"
+  },
+  {
+    "id": 215,
+    "time": "2024-12-17 21:18:07",
+    "action": "Przełączanie trybu",
+    "details": "Przełączono na tryb graficzny"
+  },
+  {
+    "id": 216,
+    "time": "2024-12-17 21:18:11",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta z trybu graficznego"
   }
 ]

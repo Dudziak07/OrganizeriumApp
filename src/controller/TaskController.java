@@ -16,19 +16,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TaskController {
+    private static TaskController instance; // Statyczna instancja klasy (Singleton)
     private final List<Task> tasks = new ArrayList<>();
     private static final String FILE_NAME = "tasks.json";
-    private final Gson gson = new GsonBuilder().setPrettyPrinting().create();  // Ustawienie Pretty Printing
+    private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
     private final IdManager idManager = new IdManager();
 
-    public TaskController() {
+    // Prywatny konstruktor – Singleton
+    private TaskController() {
         loadTasks();
     }
 
+    // Publiczna metoda zwracająca jedyną instancję klasy
+    public static TaskController getInstance() {
+        if (instance == null) {
+            instance = new TaskController();
+        }
+        return instance;
+    }
+
+    // Dodanie zadania
     public void addTask(Task task) {
         tasks.add(task);
         saveTasks();
-
         Logger.log("Dodano zadanie", String.format(
                 "id:[%d] (%s), Kategoria: %s, Priorytet: %s, Termin: %s, Utworzone: %s",
                 task.getId(), task.getName(), task.getCategory(), task.getPriority(),
@@ -36,6 +46,7 @@ public class TaskController {
         ));
     }
 
+    // Zwrócenie listy zadań
     public List<Task> getTasks() {
         return tasks;
     }
