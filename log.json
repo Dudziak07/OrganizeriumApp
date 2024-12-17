@@ -1468,5 +1468,83 @@
     "time": "2024-12-17 22:22:14",
     "action": "Zamknięcie aplikacji",
     "details": "Aplikacja została zamknięta przez użytkownika"
+  },
+  {
+    "id": 243,
+    "time": "2024-12-17 22:27:17",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 244,
+    "time": "2024-12-17 22:29:10",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 245,
+    "time": "2024-12-17 22:29:43",
+    "action": "Edytowano zadanie",
+    "details": "id:[30] (Test edycji)"
+  },
+  {
+    "id": 246,
+    "time": "2024-12-17 22:29:56",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta przez użytkownika"
+  },
+  {
+    "id": 247,
+    "time": "2024-12-17 22:31:57",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 248,
+    "time": "2024-12-17 22:32:05",
+    "action": "Edytowano zadanie",
+    "details": "id:[30] (Test edycji2)"
+  },
+  {
+    "id": 249,
+    "time": "2024-12-17 22:32:17",
+    "action": "Edytowano zadanie",
+    "details": "id:[53] (test)"
+  },
+  {
+    "id": 250,
+    "time": "2024-12-17 22:32:33",
+    "action": "Edytowano zadanie",
+    "details": "id:[53] (test)"
+  },
+  {
+    "id": 251,
+    "time": "2024-12-17 22:32:40",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta przez użytkownika"
+  },
+  {
+    "id": 252,
+    "time": "2024-12-17 22:32:49",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 253,
+    "time": "2024-12-17 22:33:02",
+    "action": "Edytowano zadanie",
+    "details": "id:[30] (Test edycji2)"
+  },
+  {
+    "id": 254,
+    "time": "2024-12-17 22:33:16",
+    "action": "Dodano zadanie",
+    "details": "id:[54] (af), Kategoria: , Priorytet: *bez priorytetu*, Termin: afda, Utworzone: 2024-12-17 22:33:16"
+  },
+  {
+    "id": 255,
+    "time": "2024-12-17 22:33:23",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta przez użytkownika"
   }
 ]

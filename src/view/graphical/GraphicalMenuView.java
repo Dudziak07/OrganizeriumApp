@@ -75,7 +75,7 @@ public class GraphicalMenuView {
         // Dodanie akcji przyciskom
         addTaskButton.addActionListener(e -> new GraphicalAddView(controller, frame).show());
         showTasksButton.addActionListener(e -> new GraphicalListView(controller, frame).show());
-        editTaskButton.addActionListener(e -> JOptionPane.showMessageDialog(frame, "Funkcja edycji zadania"));
+        editTaskButton.addActionListener(e -> new GraphicalEditView(controller, frame).show());
         deleteTaskButton.addActionListener(e -> JOptionPane.showMessageDialog(frame, "Funkcja usuwania zadania"));
         exitButton.addActionListener(e -> {
             Logger.log("Zamknięcie aplikacji", "Aplikacja została zamknięta przez użytkownika");
