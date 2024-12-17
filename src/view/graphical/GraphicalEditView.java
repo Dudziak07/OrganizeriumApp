@@ -75,30 +75,44 @@ public class GraphicalEditView {
 
         saveButton.addActionListener(e -> {
             String input = idOrNameField.getText().trim();
+            String newName = nameField.getText().trim();
+            String newCategory = categoryField.getText().trim();
+            String newDeadline = deadlineField.getText().trim();
+            String newPriority = (String) priorityComboBox.getSelectedItem();
+
             boolean success = false;
 
+            // Walidacja długości tekstu
+            if (newName.isEmpty()) {
+                JOptionPane.showMessageDialog(dialog, "Nazwa zadania jest wymagana!", "Błąd", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            if (newName.length() > 20) {
+                JOptionPane.showMessageDialog(dialog, "Nazwa zadania nie może przekraczać 20 znaków!", "Błąd", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            if (newCategory.length() > 20) {
+                JOptionPane.showMessageDialog(dialog, "Kategoria nie może przekraczać 20 znaków!", "Błąd", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            // Walidacja formatu daty
+            if (!newDeadline.isEmpty() && !newDeadline.matches("\\d{4}-\\d{2}-\\d{2}")) {
+                JOptionPane.showMessageDialog(dialog, "Niepoprawny format daty. Użyj formatu YYYY-MM-DD!", "Błąd", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            // Edycja zadania
             try {
                 int id = Integer.parseInt(input);
-                success = controller.editTaskById(
-                        id,
-                        nameField.getText().trim(),
-                        categoryField.getText().trim(),
-                        deadlineField.getText().trim(),
-                        (String) priorityComboBox.getSelectedItem()
-                );
+                success = controller.editTaskById(id, newName, newCategory, newDeadline, newPriority);
             } catch (NumberFormatException ex) {
-                success = controller.editTaskByName(
-                        input,
-                        nameField.getText().trim(),
-                        categoryField.getText().trim(),
-                        deadlineField.getText().trim(),
-                        (String) priorityComboBox.getSelectedItem()
-                );
+                success = controller.editTaskByName(input, newName, newCategory, newDeadline, newPriority);
             }
 
             if (success) {
                 JOptionPane.showMessageDialog(dialog, "Zadanie zostało zaktualizowane pomyślnie!");
-                dialog.dispose(); // Zamknięcie okna po poprawnym zapisie
+                dialog.dispose();
             } else {
                 JOptionPane.showMessageDialog(dialog, "Nie udało się zaktualizować zadania!", "Błąd", JOptionPane.ERROR_MESSAGE);
             }

@@ -44,11 +44,27 @@ public class GraphicalAddView {
             String deadline = deadlineField.getText().trim();
             String priority = (String) priorityComboBox.getSelectedItem();
 
+            // Walidacja: nazwa i kategoria <= 20 znaków
             if (name.isEmpty()) {
                 JOptionPane.showMessageDialog(dialog, "Nazwa zadania jest wymagana!", "Błąd", JOptionPane.ERROR_MESSAGE);
                 return;
             }
+            if (name.length() > 20) {
+                JOptionPane.showMessageDialog(dialog, "Nazwa zadania nie może przekraczać 20 znaków!", "Błąd", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            if (category.length() > 20) {
+                JOptionPane.showMessageDialog(dialog, "Kategoria nie może przekraczać 20 znaków!", "Błąd", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
 
+            // Walidacja formatu daty
+            if (!deadline.isEmpty() && !deadline.matches("\\d{4}-\\d{2}-\\d{2}")) {
+                JOptionPane.showMessageDialog(dialog, "Niepoprawny format daty. Użyj formatu YYYY-MM-DD!", "Błąd", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            // Dodanie zadania
             Task newTask = new Task(controller.getNextId(), name, category, deadline, priority);
             controller.addTask(newTask);
             JOptionPane.showMessageDialog(dialog, "Zadanie dodano pomyślnie!");
