@@ -1,4 +1,4 @@
-package view;
+package view.textual;
 
 import com.googlecode.lanterna.TerminalFacade;
 import controller.Logger;
@@ -9,6 +9,7 @@ import com.googlecode.lanterna.gui.component.Button;
 import com.googlecode.lanterna.gui.component.Label;
 import com.googlecode.lanterna.gui.component.Panel;
 import com.googlecode.lanterna.gui.component.Panel.Orientation;
+import view.graphical.GraphicalMenuView;
 
 public class MainMenuView {
     private final TaskController controller;

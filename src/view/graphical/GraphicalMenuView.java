@@ -1,8 +1,9 @@
-package view;
+package view.graphical;
 
 import com.formdev.flatlaf.FlatDarkLaf;
 import controller.Logger;
 import controller.TaskController;
+import view.textual.MainMenuView;
 
 import javax.swing.*;
 import java.awt.*;
@@ -73,7 +74,7 @@ public class GraphicalMenuView {
 
         // Dodanie akcji przyciskom
         addTaskButton.addActionListener(e -> new GraphicalAddView(controller, frame).show());
-        showTasksButton.addActionListener(e -> JOptionPane.showMessageDialog(frame, "Lista zadań:\n" + controller.getTasks()));
+        showTasksButton.addActionListener(e -> new GraphicalListView(controller, frame).show());
         editTaskButton.addActionListener(e -> JOptionPane.showMessageDialog(frame, "Funkcja edycji zadania"));
         deleteTaskButton.addActionListener(e -> JOptionPane.showMessageDialog(frame, "Funkcja usuwania zadania"));
         exitButton.addActionListener(e -> {

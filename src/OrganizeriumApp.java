@@ -1,5 +1,5 @@
 import controller.TaskController;
-import view.GraphicalMenuView;
+import view.graphical.GraphicalMenuView;
 
 public class OrganizeriumApp {
     public static void main(String[] args) {

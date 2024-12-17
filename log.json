@@ -1456,5 +1456,17 @@
     "time": "2024-12-17 22:18:16",
     "action": "Zamknięcie aplikacji",
     "details": "Aplikacja została zamknięta z trybu graficznego"
+  },
+  {
+    "id": 241,
+    "time": "2024-12-17 22:21:46",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 242,
+    "time": "2024-12-17 22:22:14",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta przez użytkownika"
   }
 ]

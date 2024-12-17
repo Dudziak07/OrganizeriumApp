@@ -1,4 +1,4 @@
-package view;
+package view.graphical;
 
 import controller.TaskController;
 import model.Task;
