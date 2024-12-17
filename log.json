@@ -994,5 +994,95 @@
     "time": "2024-11-23 15:03:32",
     "action": "Wyłączono aplikację",
     "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 164,
+    "time": "2024-11-23 15:05:12",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 165,
+    "time": "2024-11-23 15:13:17",
+    "action": "Dodano zadanie",
+    "details": "id:[48] (kocham), Kategoria: milosc, Priorytet: bardzo ważne, Termin: , Utworzone: 2024-11-23 15:13:17"
+  },
+  {
+    "id": 166,
+    "time": "2024-11-23 15:15:51",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 167,
+    "time": "2024-11-23 18:07:47",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 168,
+    "time": "2024-11-23 18:07:50",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 169,
+    "time": "2024-11-23 18:08:01",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 170,
+    "time": "2024-11-23 18:10:08",
+    "action": "Dodano zadanie",
+    "details": "id:[49] (spalic sierociniec), Kategoria: wymagane, Priorytet: bardzo ważne, Termin: 2024-11-23, Utworzone: 2024-11-23 18:10:08"
+  },
+  {
+    "id": 171,
+    "time": "2024-11-23 18:11:27",
+    "action": "Edytowano zadanie",
+    "details": "id:[49] (zjesc bulke z szynko)"
+  },
+  {
+    "id": 172,
+    "time": "2024-11-23 18:12:36",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 173,
+    "time": "2024-11-23 18:12:41",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 174,
+    "time": "2024-11-23 18:12:57",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 175,
+    "time": "2024-12-17 14:28:47",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 176,
+    "time": "2024-12-17 14:29:06",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
+  },
+  {
+    "id": 177,
+    "time": "2024-12-17 15:29:35",
+    "action": "Uruchomienie aplikacji",
+    "details": "OrganizeriumApp została uruchomiona"
+  },
+  {
+    "id": 178,
+    "time": "2024-12-17 20:14:15",
+    "action": "Wyłączono aplikację",
+    "details": "Program został zamknięty przez użytkownika"
   }
 ]
