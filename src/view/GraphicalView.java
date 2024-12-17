@@ -23,7 +23,7 @@ public class GraphicalView {
             e.printStackTrace();
         }
 
-        this.frame = new JFrame("OrganizeriumApp - Tryb Graficzny");
+        this.frame = new JFrame("OrganizeriumApp - Menu Główne");
 
         // Logowanie tylko przy pierwszym uruchomieniu
         if (!isInitialized) {
@@ -45,30 +45,10 @@ public class GraphicalView {
             }
         });
 
-        // Pasek menu
+        // Pasek menu z opcją przełączania na tryb tekstowy
         JMenuBar menuBar = new JMenuBar();
         JMenu menu = new JMenu("Opcje");
         JMenuItem switchToTextMode = new JMenuItem("Przełącz na tryb tekstowy");
-        menu.add(switchToTextMode);
-        menuBar.add(menu);
-        frame.setJMenuBar(menuBar);
-
-        // Główna sekcja GUI
-        JLabel headerLabel = new JLabel("OrganizeriumApp - Zarządzaj Zadaniami", SwingConstants.CENTER);
-        headerLabel.setFont(new Font("Arial", Font.BOLD, 24));
-        frame.add(headerLabel, BorderLayout.NORTH);
-
-        JPanel mainPanel = new JPanel(new GridLayout(2, 1, 10, 10)); // Dodanie odstępów między elementami
-        JButton listTasksButton = new JButton("Wyświetl listę zadań");
-        JButton addTaskButton = new JButton("Dodaj nowe zadanie");
-
-        mainPanel.add(listTasksButton);
-        mainPanel.add(addTaskButton);
-        frame.add(mainPanel, BorderLayout.CENTER);
-
-        // Akcje
-        listTasksButton.addActionListener(e -> JOptionPane.showMessageDialog(frame, "Lista zadań:\n" + controller.getTasks()));
-        addTaskButton.addActionListener(e -> JOptionPane.showMessageDialog(frame, "Funkcja dodawania zadania w budowie."));
         switchToTextMode.addActionListener(e -> {
             Logger.log("Przełączanie trybu", "Przełączono na tryb tekstowy");
             frame.dispose();
@@ -76,6 +56,41 @@ public class GraphicalView {
                 new MainMenuView(controller).show();
             }).start();
         });
+        menu.add(switchToTextMode);
+        menuBar.add(menu);
+        frame.setJMenuBar(menuBar);
+
+        // Główna sekcja menu
+        JPanel panel = new JPanel(new GridLayout(5, 1, 10, 10));
+        panel.setBorder(BorderFactory.createEmptyBorder(20, 50, 20, 50));
+
+        // Dodanie przycisków
+        JButton addTaskButton = new JButton("Dodaj zadanie");
+        JButton showTasksButton = new JButton("Wyświetl zadania");
+        JButton editTaskButton = new JButton("Edytuj zadanie");
+        JButton deleteTaskButton = new JButton("Usuń zadanie");
+        JButton exitButton = new JButton("Zakończ aplikację");
+
+        // Dodanie akcji przyciskom
+        addTaskButton.addActionListener(e -> JOptionPane.showMessageDialog(frame, "Funkcja dodawania zadania"));
+        showTasksButton.addActionListener(e -> JOptionPane.showMessageDialog(frame, "Lista zadań:\n" + controller.getTasks()));
+        editTaskButton.addActionListener(e -> JOptionPane.showMessageDialog(frame, "Funkcja edycji zadania"));
+        deleteTaskButton.addActionListener(e -> JOptionPane.showMessageDialog(frame, "Funkcja usuwania zadania"));
+        exitButton.addActionListener(e -> {
+            Logger.log("Zamknięcie aplikacji", "Aplikacja została zamknięta przez użytkownika");
+            frame.dispose();
+            System.exit(0);
+        });
+
+        // Dodanie przycisków do panelu
+        panel.add(addTaskButton);
+        panel.add(showTasksButton);
+        panel.add(editTaskButton);
+        panel.add(deleteTaskButton);
+        panel.add(exitButton);
+
+        // Dodanie panelu do okna
+        frame.add(panel, BorderLayout.CENTER);
 
         // Wyświetlenie okna
         frame.setVisible(true);

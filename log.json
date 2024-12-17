@@ -1246,5 +1246,47 @@
     "time": "2024-12-17 20:54:20",
     "action": "Zamknięcie aplikacji",
     "details": "Aplikacja została zamknięta z trybu graficznego"
+  },
+  {
+    "id": 206,
+    "time": "2024-12-17 20:56:21",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 207,
+    "time": "2024-12-17 20:56:32",
+    "action": "Przełączanie trybu",
+    "details": "Przełączono na tryb tekstowy"
+  },
+  {
+    "id": 208,
+    "time": "2024-12-17 21:09:42",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta z trybu graficznego"
+  },
+  {
+    "id": 209,
+    "time": "2024-12-17 21:12:53",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 210,
+    "time": "2024-12-17 21:12:56",
+    "action": "Przełączanie trybu",
+    "details": "Przełączono na tryb tekstowy"
+  },
+  {
+    "id": 211,
+    "time": "2024-12-17 21:12:59",
+    "action": "Przełączanie trybu",
+    "details": "Przełączono na tryb graficzny"
+  },
+  {
+    "id": 212,
+    "time": "2024-12-17 21:13:05",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta przez użytkownika"
   }
 ]
