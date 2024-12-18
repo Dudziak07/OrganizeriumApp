@@ -1,10 +1,11 @@
 package view.graphical;
 
 import controller.TaskController;
+import controller.TaskValidator;
 import model.Task;
-import view.shared.TaskForm;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class GraphicalAddView {
     private final TaskController controller;
@@ -18,6 +19,7 @@ public class GraphicalAddView {
     public void show() {
         JDialog dialog = new JDialog(parentFrame, "Dodaj nowe zadanie", true);
         dialog.setSize(400, 300);
+        dialog.setLayout(new BorderLayout());
         dialog.setLocationRelativeTo(parentFrame);
 
         // Pola formularza
@@ -28,9 +30,18 @@ public class GraphicalAddView {
                 "*bez priorytetu*", "bardzo ważne", "ważne", "normalne", "bez pośpiechu"
         });
 
-        // Dodanie formularza do okna
-        JPanel formPanel = TaskForm.createTaskForm(nameField, categoryField, deadlineField, priorityComboBox);
-        dialog.add(formPanel);
+        // Panel z formularzem
+        JPanel formPanel = new JPanel(new GridLayout(4, 2, 10, 10));
+        formPanel.add(new JLabel("Nazwa zadania*:"));
+        formPanel.add(nameField);
+        formPanel.add(new JLabel("Kategoria:"));
+        formPanel.add(categoryField);
+        formPanel.add(new JLabel("Termin (YYYY-MM-DD):"));
+        formPanel.add(deadlineField);
+        formPanel.add(new JLabel("Priorytet:"));
+        formPanel.add(priorityComboBox);
+
+        dialog.add(formPanel, BorderLayout.CENTER);
 
         // Przycisk Zapisz
         JButton saveButton = new JButton("Zapisz");
@@ -40,18 +51,18 @@ public class GraphicalAddView {
             String deadline = deadlineField.getText().trim();
             String priority = (String) priorityComboBox.getSelectedItem();
 
-            // Walidacja: nazwa i kategoria <= 20 znaków
-            if (name.isEmpty()) {
-                JOptionPane.showMessageDialog(dialog, "Nazwa zadania jest wymagana!", "Błąd", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-            if (name.length() > 20 || category.length() > 20) {
-                JOptionPane.showMessageDialog(dialog, "Nazwa i kategoria nie mogą przekraczać 20 znaków!", "Błąd", JOptionPane.ERROR_MESSAGE);
+            // Walidacja danych
+            if (!TaskValidator.validateName(name)) {
+                JOptionPane.showMessageDialog(dialog, "Nazwa zadania jest wymagana i nie może przekraczać 20 znaków!", "Błąd", JOptionPane.ERROR_MESSAGE);
                 return;
             }
 
-            // Walidacja formatu daty
-            if (!deadline.isEmpty() && !deadline.matches("\\d{4}-\\d{2}-\\d{2}")) {
+            if (!TaskValidator.validateCategory(category)) {
+                JOptionPane.showMessageDialog(dialog, "Kategoria nie może przekraczać 20 znaków!", "Błąd", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            if (!TaskValidator.validateDateFormat(deadline)) {
                 JOptionPane.showMessageDialog(dialog, "Niepoprawny format daty. Użyj formatu YYYY-MM-DD!", "Błąd", JOptionPane.ERROR_MESSAGE);
                 return;
             }
@@ -63,14 +74,16 @@ public class GraphicalAddView {
             dialog.dispose();
         });
 
+        // Przycisk Anuluj
         JButton cancelButton = new JButton("Anuluj");
         cancelButton.addActionListener(e -> dialog.dispose());
 
+        // Panel z przyciskami
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(saveButton);
         buttonPanel.add(cancelButton);
 
-        dialog.add(buttonPanel, "South");
+        dialog.add(buttonPanel, BorderLayout.SOUTH);
         dialog.setVisible(true);
     }
 }

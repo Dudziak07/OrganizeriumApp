@@ -1798,5 +1798,23 @@
     "time": "2024-12-18 22:09:02",
     "action": "Zamknięcie aplikacji",
     "details": "Aplikacja została zamknięta przez użytkownika"
+  },
+  {
+    "id": 298,
+    "time": "2024-12-18 22:16:09",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 299,
+    "time": "2024-12-18 22:16:19",
+    "action": "Dodano zadanie",
+    "details": "id:[58] (acv), Kategoria: , Priorytet: *bez priorytetu*, Termin: , Utworzone: 2024-12-18 22:16:19"
+  },
+  {
+    "id": 300,
+    "time": "2024-12-18 22:16:45",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta przez użytkownika"
   }
 ]
