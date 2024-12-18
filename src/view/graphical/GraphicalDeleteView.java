@@ -37,16 +37,7 @@ public class GraphicalDeleteView {
         // Obsługa usuwania pojedynczego zadania
         deleteButton.addActionListener(e -> {
             String input = idOrNameField.getText().trim();
-            Task task = null;
-
-            if (!input.isEmpty()) {
-                try {
-                    int id = Integer.parseInt(input);
-                    task = controller.getTasks().stream().filter(t -> t.getId() == id).findFirst().orElse(null);
-                } catch (NumberFormatException ex) {
-                    task = controller.getTasks().stream().filter(t -> t.getName().equalsIgnoreCase(input)).findFirst().orElse(null);
-                }
-            }
+            Task task = controller.getTaskByIdOrName(input);
 
             if (task != null) {
                 String taskDetails = String.format(
@@ -63,7 +54,7 @@ public class GraphicalDeleteView {
                 );
 
                 if (confirmation == JOptionPane.YES_OPTION) {
-                    boolean success = controller.removeTaskById(task.getId());
+                    boolean success = controller.deleteTask(task);
                     if (success) {
                         JOptionPane.showMessageDialog(dialog, "Zadanie zostało usunięte pomyślnie!");
                         dialog.dispose();

@@ -71,48 +71,63 @@ public class GraphicalListView {
 
     private void showFilterDialog(DefaultTableModel tableModel) {
         JDialog filterDialog = new JDialog(parentFrame, "Filtruj zadania", true);
-        filterDialog.setSize(400, 300);
-        filterDialog.setLayout(new GridLayout(5, 2, 10, 10));
+        filterDialog.setSize(400, 400);
+        filterDialog.setLayout(new GridLayout(7, 2, 10, 10));
         filterDialog.setLocationRelativeTo(parentFrame);
 
-        // Pobranie unikalnych kategorii
-        Set<String> categories = controller.getTasks().stream()
+        JComboBox<String> priorityComboBox = new JComboBox<>(new String[]{
+                "Wszystkie", "*bez priorytetu*", "bardzo ważne", "ważne", "normalne", "bez pośpiechu", "Wyszukaj"
+        });
+
+        JComboBox<String> categoryComboBox = new JComboBox<>(new String[]{"Wszystkie"});
+        controller.getTasks().stream()
                 .map(Task::getCategory)
                 .filter(Objects::nonNull)
-                .collect(Collectors.toSet());
-        categories.add("Wszystkie");
+                .distinct()
+                .forEach(categoryComboBox::addItem);
 
-        JComboBox<String> priorityComboBox = new JComboBox<>(new String[]{"Wszystkie", "bardzo ważne", "ważne", "normalne", "bez pośpiechu"});
-        JComboBox<String> categoryComboBox = new JComboBox<>(categories.toArray(new String[0]));
-        JTextField dateField = new JTextField();
+        JTextField nameField = new JTextField();
+        JTextField creationDateField = new JTextField();
+        JTextField deadlineField = new JTextField();
 
         JButton filterButton = new JButton("Filtruj");
+        JButton cancelButton = new JButton("Anuluj");
 
         filterDialog.add(new JLabel("Priorytet:"));
         filterDialog.add(priorityComboBox);
         filterDialog.add(new JLabel("Kategoria:"));
         filterDialog.add(categoryComboBox);
+        filterDialog.add(new JLabel("Nazwa:"));
+        filterDialog.add(nameField);
+        filterDialog.add(new JLabel("Data utworzenia (YYYY-MM-DD):"));
+        filterDialog.add(creationDateField);
         filterDialog.add(new JLabel("Data zakończenia (YYYY-MM-DD):"));
-        filterDialog.add(dateField);
-        filterDialog.add(new JLabel());
+        filterDialog.add(deadlineField);
         filterDialog.add(filterButton);
+        filterDialog.add(cancelButton);
 
         filterButton.addActionListener(e -> {
             String priority = (String) priorityComboBox.getSelectedItem();
             String category = (String) categoryComboBox.getSelectedItem();
-            String date = dateField.getText().trim();
+            String name = nameField.getText().trim();
+            String creationDate = creationDateField.getText().trim();
+            String deadline = deadlineField.getText().trim();
 
-            List<Task> filteredTasks = controller.getTasks().stream()
-                    .filter(task -> "Wszystkie".equals(priority) || task.getPriority().equalsIgnoreCase(priority))
-                    .filter(task -> "Wszystkie".equals(category) || task.getCategory().equalsIgnoreCase(category))
-                    .filter(task -> date.isEmpty() || task.getDeadline().equals(date))
-                    .collect(Collectors.toList());
-
+            List<Task> filteredTasks = controller.filterTasks(priority, category, name, creationDate, deadline);
             loadTasksToTable(tableModel, filteredTasks);
             filterDialog.dispose();
         });
 
+        cancelButton.addActionListener(e -> filterDialog.dispose());
+
         filterDialog.setVisible(true);
+    }
+
+    // Metoda dopasowująca zadanie do wyszukiwania ogólnego
+    private boolean matchesSearch(Task task, String name, String date, String deadline) {
+        return (name.isEmpty() || task.getName().toLowerCase().contains(name.toLowerCase())) ||
+                (date.isEmpty() || task.getCreationTime().startsWith(date)) ||
+                (deadline.isEmpty() || task.getDeadline().startsWith(deadline));
     }
 
     private void showSortDialog(DefaultTableModel tableModel) {
@@ -136,21 +151,7 @@ public class GraphicalListView {
             String column = (String) columnComboBox.getSelectedItem();
             boolean ascending = "Rosnąco".equals(orderComboBox.getSelectedItem());
 
-            Comparator<Task> comparator = switch (column) {
-                case "ID" -> Comparator.comparing(Task::getId);
-                case "Nazwa" -> Comparator.comparing(Task::getName);
-                case "Kategoria" -> Comparator.comparing(Task::getCategory);
-                case "Priorytet" -> Comparator.comparing(Task::getPriority);
-                case "Termin" -> Comparator.comparing(Task::getDeadline);
-                default -> Comparator.comparing(Task::getCreationTime);
-            };
-
-            if (!ascending) comparator = comparator.reversed();
-
-            List<Task> sortedTasks = controller.getTasks().stream()
-                    .sorted(comparator)
-                    .collect(Collectors.toList());
-
+            List<Task> sortedTasks = controller.sortTasks(column, ascending);
             loadTasksToTable(tableModel, sortedTasks);
             sortDialog.dispose();
         });

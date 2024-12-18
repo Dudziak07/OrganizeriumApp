@@ -9,10 +9,13 @@ import com.google.gson.reflect.TypeToken;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class TaskController {
     private static TaskController instance; // Statyczna instancja klasy (Singleton)
@@ -76,6 +79,24 @@ public class TaskController {
         tasks.clear();
         saveTasks();
         Logger.log("Usunięto wszystkie zadania", "Wyczyszczono listę zadań");
+    }
+
+    public Task getTaskByIdOrName(String input) {
+        try {
+            int id = Integer.parseInt(input);
+            return tasks.stream().filter(task -> task.getId() == id).findFirst().orElse(null);
+        } catch (NumberFormatException e) {
+            return tasks.stream().filter(task -> task.getName().equalsIgnoreCase(input)).findFirst().orElse(null);
+        }
+    }
+
+    public boolean deleteTask(Task task) {
+        if (tasks.remove(task)) {
+            saveTasks();
+            Logger.log("Usunięto zadanie", String.format("ID: %d, Nazwa: %s", task.getId(), task.getName()));
+            return true;
+        }
+        return false;
     }
 
     public int getNextId() {
@@ -161,5 +182,41 @@ public class TaskController {
         if (newPriority != null && !newPriority.isEmpty()) {
             task.setPriority(newPriority);
         }
+    }
+
+    public List<Task> filterTasks(String priority, String category, String name, String creationDate, String deadline) {
+        return tasks.stream()
+                .filter(task -> "Wszystkie".equals(priority) || task.getPriority().equalsIgnoreCase(priority))
+                .filter(task -> "Wszystkie".equals(category) || task.getCategory().equalsIgnoreCase(category))
+                .filter(task -> name == null || name.isEmpty() || task.getName().toLowerCase().contains(name.toLowerCase()))
+                .filter(task -> creationDate == null || creationDate.isEmpty() || task.getCreationTime().startsWith(creationDate))
+                .filter(task -> deadline == null || deadline.isEmpty() || task.getDeadline().startsWith(deadline))
+                .collect(Collectors.toList());
+    }
+
+    public List<Task> sortTasks(String criteria, boolean ascending) {
+        Comparator<Task> comparator = switch (criteria) {
+            case "ID" -> Comparator.comparing(Task::getId);
+            case "Nazwa" -> Comparator.comparing(Task::getName);
+            case "Kategoria" -> Comparator.comparing(Task::getCategory);
+            case "Priorytet" -> Comparator.comparing(Task::getPriority);
+            case "Termin" -> Comparator.comparing(task -> {
+                try {
+                    return LocalDate.parse(task.getDeadline());
+                } catch (Exception e) {
+                    return LocalDate.MIN; // Nieprawidłowa data trafia na koniec listy
+                }
+            });
+            default -> Comparator.comparing(task -> {
+                try {
+                    return LocalDateTime.parse(task.getCreationTime());
+                } catch (Exception e) {
+                    return LocalDateTime.MIN; // Nieprawidłowa data trafia na koniec listy
+                }
+            });
+        };
+
+        if (!ascending) comparator = comparator.reversed();
+        return tasks.stream().sorted(comparator).collect(Collectors.toList());
     }
 }
