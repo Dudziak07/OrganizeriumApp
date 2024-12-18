@@ -1,18 +1,20 @@
 package model;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Task implements Serializable {
+    @Serial
     private static final long serialVersionUID = 1L;
 
-    private int id;
+    private final int id;
     private String name;
     private String category;
     private String deadline;
     private String priority;
-    private String creationTime;  // Nowe pole przechowujące datę i godzinę utworzenia
+    private final String creationTime;  // Nowe pole przechowujące datę i godzinę utworzenia
 
     public Task(int id, String name, String category, String deadline, String priority) {
         this.id = id;

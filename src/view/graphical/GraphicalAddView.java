@@ -7,8 +7,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GraphicalAddView {
-    private TaskController controller;
-    private JFrame parentFrame;
+    private final TaskController controller;
+    private final JFrame parentFrame;
 
     public GraphicalAddView(TaskController controller, JFrame parentFrame) {
         this.controller = controller;

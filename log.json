@@ -1570,5 +1570,71 @@
     "time": "2024-12-17 22:36:55",
     "action": "Zamknięcie aplikacji",
     "details": "Aplikacja została zamknięta przez użytkownika"
+  },
+  {
+    "id": 260,
+    "time": "2024-12-18 21:18:49",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 261,
+    "time": "2024-12-18 21:19:14",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta z trybu graficznego"
+  },
+  {
+    "id": 262,
+    "time": "2024-12-18 21:20:35",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 263,
+    "time": "2024-12-18 21:21:00",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta przez użytkownika"
+  },
+  {
+    "id": 264,
+    "time": "2024-12-18 21:21:04",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 265,
+    "time": "2024-12-18 21:21:09",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta przez użytkownika"
+  },
+  {
+    "id": 266,
+    "time": "2024-12-18 21:23:40",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 267,
+    "time": "2024-12-18 21:23:46",
+    "action": "Usunięto zadanie",
+    "details": "id:[54] (af)"
+  },
+  {
+    "id": 268,
+    "time": "2024-12-18 21:23:51",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta przez użytkownika"
+  },
+  {
+    "id": 269,
+    "time": "2024-12-18 21:23:55",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 270,
+    "time": "2024-12-18 21:24:01",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta przez użytkownika"
   }
 ]

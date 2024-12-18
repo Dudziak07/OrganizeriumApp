@@ -5,11 +5,10 @@ import model.Task;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.List;
 
 public class GraphicalEditView {
-    private TaskController controller;
-    private JFrame parentFrame;
+    private final TaskController controller;
+    private final JFrame parentFrame;
 
     public GraphicalEditView(TaskController controller, JFrame parentFrame) {
         this.controller = controller;

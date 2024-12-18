@@ -9,8 +9,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GraphicalMenuView {
-    private TaskController controller;
-    private JFrame frame;
+    private final TaskController controller;
+    private final JFrame frame;
     private static boolean isInitialized = false; // Flaga do kontrolowania logowania
 
     public GraphicalMenuView(TaskController controller) {
@@ -76,7 +76,7 @@ public class GraphicalMenuView {
         addTaskButton.addActionListener(e -> new GraphicalAddView(controller, frame).show());
         showTasksButton.addActionListener(e -> new GraphicalListView(controller, frame).show());
         editTaskButton.addActionListener(e -> new GraphicalEditView(controller, frame).show());
-        deleteTaskButton.addActionListener(e -> JOptionPane.showMessageDialog(frame, "Funkcja usuwania zadania"));
+        deleteTaskButton.addActionListener(e -> new GraphicalDeleteView(controller, frame).show());
         exitButton.addActionListener(e -> {
             Logger.log("Zamknięcie aplikacji", "Aplikacja została zamknięta przez użytkownika");
             frame.dispose();

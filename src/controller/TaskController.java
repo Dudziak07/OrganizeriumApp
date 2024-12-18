@@ -2,7 +2,6 @@ package controller;
 
 import model.IdManager;
 import model.Task;
-import controller.Logger;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;

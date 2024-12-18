@@ -9,8 +9,8 @@ import java.awt.*;
 import java.util.List;
 
 public class GraphicalListView {
-    private TaskController controller;
-    private JFrame parentFrame;
+    private final TaskController controller;
+    private final JFrame parentFrame;
 
     public GraphicalListView(TaskController controller, JFrame parentFrame) {
         this.controller = controller;

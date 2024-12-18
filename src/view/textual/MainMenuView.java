@@ -13,7 +13,7 @@ import view.graphical.GraphicalMenuView;
 
 public class MainMenuView {
     private final TaskController controller;
-    private GUIScreen guiScreen;
+    private final GUIScreen guiScreen;
 
     public MainMenuView(TaskController controller) {
         this.controller = controller;
@@ -28,7 +28,7 @@ public class MainMenuView {
         panel.addComponent(new Label("Witaj w Organizerium!"));
         panel.addComponent(new Button("Dodaj zadanie", this::showAddTask));
         panel.addComponent(new Button("Pokaż zadania", this::showTaskList));
-        panel.addComponent(new Button("Edytuj zadanie", this::showEditTaskMenu));;
+        panel.addComponent(new Button("Edytuj zadanie", this::showEditTaskMenu));
         panel.addComponent(new Button("Usuń zadanie", this::showDeleteTaskMenu));
         panel.addComponent(new Button("Przełącz na tryb graficzny", this::switchToGraphicalMode));
         panel.addComponent(new Button("Wyłącz aplikację", this::exitApplication));
