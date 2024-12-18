@@ -75,7 +75,20 @@ public class GraphicalMenuView {
         // Dodanie akcji przyciskom
         addTaskButton.addActionListener(e -> new GraphicalAddView(controller, frame).show());
         showTasksButton.addActionListener(e -> new GraphicalListView(controller, frame).show());
-        editTaskButton.addActionListener(e -> new GraphicalEditView(controller, frame).show());
+
+        // Edytuj zadanie - pobiera ID od użytkownika
+        editTaskButton.addActionListener(e -> {
+            String taskIdInput = JOptionPane.showInputDialog(frame, "Podaj ID zadania do edycji:", "Edytuj zadanie", JOptionPane.QUESTION_MESSAGE);
+            if (taskIdInput != null && !taskIdInput.trim().isEmpty()) {
+                try {
+                    int taskId = Integer.parseInt(taskIdInput.trim());
+                    new GraphicalEditView(controller, frame).show(taskId);
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(frame, "Nieprawidłowy format ID!", "Błąd", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
+
         deleteTaskButton.addActionListener(e -> new GraphicalDeleteView(controller, frame).show());
         exitButton.addActionListener(e -> {
             Logger.log("Zamknięcie aplikacji", "Aplikacja została zamknięta przez użytkownika");

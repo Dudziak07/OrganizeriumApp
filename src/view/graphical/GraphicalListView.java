@@ -6,10 +6,10 @@ import model.Task;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.time.LocalDate;
-import java.util.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Objects;
 
 public class GraphicalListView {
     private final TaskController controller;
@@ -35,6 +35,69 @@ public class GraphicalListView {
         // Tworzenie tabeli i osadzenie jej w scroll panelu
         JTable taskTable = new JTable(tableModel);
         JScrollPane scrollPane = new JScrollPane(taskTable);
+
+        // Obsługa menu kontekstowego (prawy przycisk)
+        JPopupMenu popupMenu = new JPopupMenu();
+        JMenuItem editItem = new JMenuItem("Edytuj");
+        JMenuItem deleteItem = new JMenuItem("Usuń");
+
+        popupMenu.add(editItem);
+        popupMenu.add(deleteItem);
+
+        taskTable.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                if (e.isPopupTrigger()) showPopup(e);
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                if (e.isPopupTrigger()) showPopup(e);
+            }
+
+            private void showPopup(MouseEvent e) {
+                int row = taskTable.rowAtPoint(e.getPoint());
+                if (row >= 0) {
+                    taskTable.setRowSelectionInterval(row, row);
+                    popupMenu.show(taskTable, e.getX(), e.getY());
+                }
+            }
+        });
+
+        // Akcja "Edytuj"
+        editItem.addActionListener(e -> {
+            int selectedRow = taskTable.getSelectedRow();
+            if (selectedRow != -1) {
+                int taskId = (int) taskTable.getValueAt(selectedRow, 0);
+                new GraphicalEditView(controller, parentFrame).show(taskId);
+                loadTasksToTable(tableModel, controller.getTasks());
+            }
+        });
+
+        // Akcja "Usuń" z potwierdzeniem
+        deleteItem.addActionListener(e -> {
+            int selectedRow = taskTable.getSelectedRow();
+            if (selectedRow != -1) {
+                int taskId = (int) taskTable.getValueAt(selectedRow, 0);
+                Task task = controller.getTaskById(taskId);
+
+                int confirmation = JOptionPane.showConfirmDialog(dialog,
+                        "Czy na pewno chcesz usunąć to zadanie?\n" +
+                                "ID: " + task.getId() + "\n" +
+                                "Nazwa: " + task.getName() + "\n" +
+                                "Kategoria: " + task.getCategory() + "\n" +
+                                "Priorytet: " + task.getPriority() + "\n" +
+                                "Termin: " + task.getDeadline() + "\n" +
+                                "Data utworzenia: " + task.getCreationTime(),
+                        "Potwierdzenie usunięcia",
+                        JOptionPane.YES_NO_OPTION);
+
+                if (confirmation == JOptionPane.YES_OPTION) {
+                    controller.removeTaskById(taskId);
+                    loadTasksToTable(tableModel, controller.getTasks());
+                }
+            }
+        });
 
         // Panel z przyciskami
         JPanel buttonPanel = new JPanel(new GridLayout(1, 3, 10, 10));
@@ -71,12 +134,12 @@ public class GraphicalListView {
 
     private void showFilterDialog(DefaultTableModel tableModel) {
         JDialog filterDialog = new JDialog(parentFrame, "Filtruj zadania", true);
-        filterDialog.setSize(400, 400);
-        filterDialog.setLayout(new GridLayout(7, 2, 10, 10));
+        filterDialog.setSize(390, 300); // Rozmiar spójny z sortowaniem
+        filterDialog.setLayout(new GridLayout(6, 2, 10, 10));
         filterDialog.setLocationRelativeTo(parentFrame);
 
         JComboBox<String> priorityComboBox = new JComboBox<>(new String[]{
-                "Wszystkie", "*bez priorytetu*", "bardzo ważne", "ważne", "normalne", "bez pośpiechu", "Wyszukaj"
+                "Wszystkie", "*bez priorytetu*", "bardzo ważne", "ważne", "normalne", "bez pośpiechu"
         });
 
         JComboBox<String> categoryComboBox = new JComboBox<>(new String[]{"Wszystkie"});
@@ -119,33 +182,29 @@ public class GraphicalListView {
         });
 
         cancelButton.addActionListener(e -> filterDialog.dispose());
-
         filterDialog.setVisible(true);
-    }
-
-    // Metoda dopasowująca zadanie do wyszukiwania ogólnego
-    private boolean matchesSearch(Task task, String name, String date, String deadline) {
-        return (name.isEmpty() || task.getName().toLowerCase().contains(name.toLowerCase())) ||
-                (date.isEmpty() || task.getCreationTime().startsWith(date)) ||
-                (deadline.isEmpty() || task.getDeadline().startsWith(deadline));
     }
 
     private void showSortDialog(DefaultTableModel tableModel) {
         JDialog sortDialog = new JDialog(parentFrame, "Sortuj zadania", true);
-        sortDialog.setSize(400, 200);
+        sortDialog.setSize(350, 200);
         sortDialog.setLayout(new GridLayout(3, 2, 10, 10));
         sortDialog.setLocationRelativeTo(parentFrame);
 
-        JComboBox<String> columnComboBox = new JComboBox<>(new String[]{"ID", "Nazwa", "Kategoria", "Priorytet", "Termin", "Data utworzenia"});
+        JComboBox<String> columnComboBox = new JComboBox<>(new String[]{
+                "ID", "Nazwa", "Kategoria", "Priorytet", "Termin", "Data utworzenia"
+        });
         JComboBox<String> orderComboBox = new JComboBox<>(new String[]{"Rosnąco", "Malejąco"});
+
         JButton sortButton = new JButton("Sortuj");
+        JButton cancelButton = new JButton("Anuluj");
 
         sortDialog.add(new JLabel("Sortuj po kolumnie:"));
         sortDialog.add(columnComboBox);
         sortDialog.add(new JLabel("Kierunek:"));
         sortDialog.add(orderComboBox);
-        sortDialog.add(new JLabel());
         sortDialog.add(sortButton);
+        sortDialog.add(cancelButton);
 
         sortButton.addActionListener(e -> {
             String column = (String) columnComboBox.getSelectedItem();
@@ -156,6 +215,7 @@ public class GraphicalListView {
             sortDialog.dispose();
         });
 
+        cancelButton.addActionListener(e -> sortDialog.dispose());
         sortDialog.setVisible(true);
     }
 }

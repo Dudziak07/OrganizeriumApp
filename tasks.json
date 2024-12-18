@@ -28,14 +28,6 @@
     "priority": ""
   },
   {
-    "id": 24,
-    "name": "ge",
-    "category": "",
-    "deadline": "",
-    "priority": "",
-    "creationTime": "2024-11-16 13:41:08"
-  },
-  {
     "id": 25,
     "name": "eg",
     "category": "",
@@ -84,14 +76,6 @@
     "creationTime": "2024-11-16 13:58:27"
   },
   {
-    "id": 33,
-    "name": "sieasdafads",
-    "category": "",
-    "deadline": "",
-    "priority": "*bez priorytetu*",
-    "creationTime": "2024-11-16 14:21:46"
-  },
-  {
     "id": 34,
     "name": "safd",
     "category": "",
@@ -114,14 +98,6 @@
     "deadline": "",
     "priority": "normalne",
     "creationTime": "2024-11-16 14:29:24"
-  },
-  {
-    "id": 37,
-    "name": "czcazcacacaacaxcaxcz",
-    "category": "zc",
-    "deadline": "",
-    "priority": "*bez priorytetu*",
-    "creationTime": "2024-11-16 14:29:39"
   },
   {
     "id": 38,

@@ -89,6 +89,26 @@ public class TaskController {
         Logger.log("Usunięto wszystkie zadania", "Wyczyszczono listę zadań");
     }
 
+    public Task getTaskById(int id) {
+        return tasks.stream()
+                .filter(task -> task.getId() == id)
+                .findFirst()
+                .orElse(null);
+    }
+
+    public boolean editTask(int id, String newName, String newCategory, String newDeadline, String newPriority) {
+        Task task = getTaskById(id);
+        if (task != null) {
+            if (newName != null && !newName.isBlank()) task.setName(newName);
+            if (newCategory != null) task.setCategory(newCategory);
+            if (newDeadline != null) task.setDeadline(newDeadline);
+            if (newPriority != null) task.setPriority(newPriority);
+            saveTasks(); // Aktualizacja pliku tasks.json
+            return true;
+        }
+        return false;
+    }
+
     public Task getTaskByIdOrName(String input) {
         try {
             int id = Integer.parseInt(input);
