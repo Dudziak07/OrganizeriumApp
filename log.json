@@ -1636,5 +1636,59 @@
     "time": "2024-12-18 21:24:01",
     "action": "Zamknięcie aplikacji",
     "details": "Aplikacja została zamknięta przez użytkownika"
+  },
+  {
+    "id": 271,
+    "time": "2024-12-18 21:38:06",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 272,
+    "time": "2024-12-18 21:38:47",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta z trybu graficznego"
+  },
+  {
+    "id": 273,
+    "time": "2024-12-18 21:41:33",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 274,
+    "time": "2024-12-18 21:42:25",
+    "action": "Dodano zadanie",
+    "details": "id:[56] (Prawy przycisk lista), Kategoria: ToDo, Priorytet: bardzo ważne, Termin: , Utworzone: 2024-12-18 21:42:25"
+  },
+  {
+    "id": 275,
+    "time": "2024-12-18 21:42:36",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta przez użytkownika"
+  },
+  {
+    "id": 276,
+    "time": "2024-12-18 21:42:49",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 277,
+    "time": "2024-12-18 21:43:53",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta przez użytkownika"
+  },
+  {
+    "id": 278,
+    "time": "2024-12-18 21:44:03",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 279,
+    "time": "2024-12-18 21:44:05",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta przez użytkownika"
   }
 ]

@@ -250,5 +250,13 @@
     "deadline": "",
     "priority": "*bez priorytetu*",
     "creationTime": "2024-12-17 22:36:29"
+  },
+  {
+    "id": 56,
+    "name": "Prawy przycisk lista",
+    "category": "ToDo",
+    "deadline": "",
+    "priority": "bardzo ważne",
+    "creationTime": "2024-12-18 21:42:25"
   }
 ]
