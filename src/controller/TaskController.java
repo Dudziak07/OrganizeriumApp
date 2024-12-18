@@ -53,6 +53,14 @@ public class TaskController {
         return tasks;
     }
 
+    public String getTaskDetails(Task task) {
+        return String.format(
+                "ID: %d\nNazwa: %s\nKategoria: %s\nPriorytet: %s\nTermin: %s\nData utworzenia: %s",
+                task.getId(), task.getName(), task.getCategory(), task.getPriority(),
+                task.getDeadline(), task.getCreationTime()
+        );
+    }
+
     public boolean removeTaskById(int id) {
         Task taskToRemove = tasks.stream().filter(task -> task.getId() == id).findFirst().orElse(null);
         if (taskToRemove != null) {

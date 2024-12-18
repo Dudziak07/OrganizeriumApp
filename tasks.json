@@ -258,5 +258,13 @@
     "deadline": "",
     "priority": "bardzo ważne",
     "creationTime": "2024-12-18 21:42:25"
+  },
+  {
+    "id": 57,
+    "name": "sfv",
+    "category": "",
+    "deadline": "",
+    "priority": "*bez priorytetu*",
+    "creationTime": "2024-12-18 22:08:58"
   }
 ]
