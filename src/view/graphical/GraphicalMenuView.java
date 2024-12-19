@@ -7,6 +7,7 @@ import view.textual.MainMenuView;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Objects;
 
 public class GraphicalMenuView {
     private final TaskController controller;
@@ -40,9 +41,7 @@ public class GraphicalMenuView {
         frame.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
-                Logger.log("Zamknięcie aplikacji", "Aplikacja została zamknięta z trybu graficznego");
-                frame.dispose();
-                System.exit(0);
+                showExitConfirmation();
             }
         });
 
@@ -53,9 +52,7 @@ public class GraphicalMenuView {
         switchToTextMode.addActionListener(e -> {
             Logger.log("Przełączanie trybu", "Przełączono na tryb tekstowy");
             frame.dispose();
-            new Thread(() -> {
-                new MainMenuView(controller).show();
-            }).start();
+            new Thread(() -> new MainMenuView(controller).show()).start();
         });
         menu.add(switchToTextMode);
         menuBar.add(menu);
@@ -70,7 +67,6 @@ public class GraphicalMenuView {
         JButton showTasksButton = new JButton("Wyświetl zadania");
         JButton editTaskButton = new JButton("Edytuj zadanie");
         JButton deleteTaskButton = new JButton("Usuń zadanie");
-        JButton exitButton = new JButton("Zakończ aplikację");
 
         // Dodanie akcji przyciskom
         addTaskButton.addActionListener(e -> new GraphicalAddView(controller, frame).show());
@@ -90,23 +86,53 @@ public class GraphicalMenuView {
         });
 
         deleteTaskButton.addActionListener(e -> new GraphicalDeleteView(controller, frame).show());
-        exitButton.addActionListener(e -> {
-            Logger.log("Zamknięcie aplikacji", "Aplikacja została zamknięta przez użytkownika");
-            frame.dispose();
-            System.exit(0);
-        });
 
         // Dodanie przycisków do panelu
         panel.add(addTaskButton);
         panel.add(showTasksButton);
         panel.add(editTaskButton);
         panel.add(deleteTaskButton);
-        panel.add(exitButton);
+
+        // Dodanie przycisku wyłączania z ikoną w prawym dolnym rogu
+        JButton exitButton = new JButton();
+        try {
+            ImageIcon originalIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/icons/power_off.png")));
+            Image scaledImage = originalIcon.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH);
+            exitButton.setIcon(new ImageIcon(scaledImage));
+        } catch (Exception e) {
+            Logger.log("Błąd ładowania ikony", "Nie udało się załadować ikony wyłączania");
+        }
+        exitButton.setToolTipText("Zamknij aplikację");
+        exitButton.setPreferredSize(new Dimension(50, 50));
+        exitButton.setFocusPainted(false);
+        exitButton.setContentAreaFilled(false);
+        exitButton.setBorderPainted(false);
+        exitButton.addActionListener(e -> showExitConfirmation());
+
+        JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        bottomPanel.add(exitButton);
 
         // Dodanie panelu do okna
         frame.add(panel, BorderLayout.CENTER);
+        frame.add(bottomPanel, BorderLayout.SOUTH);
 
         // Wyświetlenie okna
         frame.setVisible(true);
+    }
+
+    // Metoda wyświetlająca potwierdzenie wyjścia z aplikacji
+    private void showExitConfirmation() {
+        int confirmation = JOptionPane.showConfirmDialog(
+                frame,
+                "Czy na pewno chcesz zamknąć aplikację?",
+                "Potwierdzenie zamknięcia",
+                JOptionPane.YES_NO_OPTION
+        );
+
+        if (confirmation == JOptionPane.YES_OPTION) {
+            Logger.log("Zamknięcie aplikacji", "Aplikacja została zamknięta przez użytkownika");
+            frame.dispose();
+            System.exit(0);
+        }
     }
 }
