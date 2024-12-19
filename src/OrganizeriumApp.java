@@ -1,12 +1,14 @@
+import controller.AppController;
 import controller.TaskController;
 import view.graphical.GraphicalMenuView;
 
 public class OrganizeriumApp {
     public static void main(String[] args) {
-        TaskController controller = TaskController.getInstance();
+        TaskController taskController = TaskController.getInstance();
+        AppController appController = new AppController(); // Dodanie AppController
 
-        // Uruchamiamy aplikację w trybie graficznym
-        GraphicalMenuView graphicalView = new GraphicalMenuView(controller);
+        // Przekazanie AppController do widoku
+        GraphicalMenuView graphicalView = new GraphicalMenuView(taskController, appController);
         graphicalView.show();
     }
 }

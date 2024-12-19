@@ -2,6 +2,7 @@ package view.graphical;
 
 import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatLightLaf;
+import controller.AppController;
 import controller.Logger;
 import controller.TaskController;
 import view.textual.MainMenuView;
@@ -14,14 +15,15 @@ import java.util.Objects;
 
 public class GraphicalMenuView {
     private final TaskController controller;
+    private final AppController appController;
     private final JFrame frame;
-    private static boolean isDarkMode = true; // Flaga dla trybu ciemnego (statyczna)
-    private JPanel mainPanel; // Główny panel do dynamicznego odświeżania
+    private JPanel mainPanel;
 
-    public GraphicalMenuView(TaskController controller) {
+    public GraphicalMenuView(TaskController controller, AppController appController) {
         this.controller = controller;
+        this.appController = appController;
 
-        setLookAndFeel(isDarkMode);
+        setLookAndFeel(appController.isDarkMode());
 
         this.frame = new JFrame("OrganizeriumApp - Menu Główne");
 
@@ -44,17 +46,17 @@ public class GraphicalMenuView {
         JMenuItem switchToTextMode = new JMenuItem("Przełącz na tryb tekstowy");
         switchToTextMode.addActionListener(e -> {
             Logger.log("Przełączanie trybu", "Przełączono na tryb tekstowy");
-            frame.dispose();
-            new Thread(() -> new MainMenuView(controller).show()).start();
+            frame.dispose(); // Zamknięcie okna graficznego
+            new Thread(() -> new MainMenuView(controller, appController).show()).start(); // Przekazanie obu argumentów
         });
 
-        JMenuItem switchTheme = new JMenuItem(isDarkMode ? "Przełącz na tryb jasny" : "Przełącz na tryb ciemny");
+        JMenuItem switchTheme = new JMenuItem(appController.isDarkMode() ? "Przełącz na tryb jasny" : "Przełącz na tryb ciemny");
         switchTheme.addActionListener(e -> {
-            isDarkMode = !isDarkMode;
-            Logger.log("Przełączenie motywu", isDarkMode ? "Ustawiono tryb ciemny" : "Ustawiono tryb jasny");
-            setLookAndFeel(isDarkMode);
-            switchTheme.setText(isDarkMode ? "Przełącz na tryb jasny" : "Przełącz na tryb ciemny");
-            refreshView(); // Odświeżenie widoku
+            appController.toggleDarkMode();
+            Logger.log("Przełączenie motywu", appController.isDarkMode() ? "Ustawiono tryb ciemny" : "Ustawiono tryb jasny");
+            setLookAndFeel(appController.isDarkMode());
+            switchTheme.setText(appController.isDarkMode() ? "Przełącz na tryb jasny" : "Przełącz na tryb ciemny");
+            refreshView();
         });
 
         menu.add(switchToTextMode);
@@ -62,7 +64,6 @@ public class GraphicalMenuView {
         menuBar.add(menu);
         frame.setJMenuBar(menuBar);
 
-        // Główna zawartość
         mainPanel = createMainPanel();
         frame.add(mainPanel);
 
@@ -113,14 +114,9 @@ public class GraphicalMenuView {
     }
 
     private void refreshView() {
-        // Usuń starą zawartość
         frame.getContentPane().removeAll();
-
-        // Dodaj nową zawartość
         mainPanel = createMainPanel();
         frame.add(mainPanel);
-
-        // Zaktualizuj widok
         SwingUtilities.updateComponentTreeUI(frame);
         frame.repaint();
     }
@@ -128,9 +124,8 @@ public class GraphicalMenuView {
     private JButton createStyledButton(String text, Color hoverColor, Color borderColor, java.awt.event.ActionListener action) {
         JButton button = new JButton(text);
 
-        // Ustawienie kolorów w zależności od trybu
-        Color backgroundColor = isDarkMode ? Color.DARK_GRAY : new Color(235, 235, 235); // Jasnoszary dla trybu jasnego
-        Color foregroundColor = isDarkMode ? Color.WHITE : Color.BLACK;
+        Color backgroundColor = appController.isDarkMode() ? Color.DARK_GRAY : new Color(235, 235, 235);
+        Color foregroundColor = appController.isDarkMode() ? Color.WHITE : Color.BLACK;
 
         button.setBackground(backgroundColor);
         button.setForeground(foregroundColor);

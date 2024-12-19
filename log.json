@@ -2920,5 +2920,77 @@
     "time": "2024-12-20 00:13:33",
     "action": "Zamknięcie aplikacji",
     "details": "Aplikacja została zamknięta przez użytkownika"
+  },
+  {
+    "id": 485,
+    "time": "2024-12-20 00:36:09",
+    "action": "Błąd konfiguracji",
+    "details": "Nie udało się wczytać pliku konfiguracyjnego: Not a JSON Object: null"
+  },
+  {
+    "id": 486,
+    "time": "2024-12-20 00:41:46",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 487,
+    "time": "2024-12-20 00:41:48",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb jasny"
+  },
+  {
+    "id": 488,
+    "time": "2024-12-20 00:41:52",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta przez użytkownika"
+  },
+  {
+    "id": 489,
+    "time": "2024-12-20 00:41:56",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 490,
+    "time": "2024-12-20 00:41:57",
+    "action": "Przełączanie trybu",
+    "details": "Przełączono na tryb tekstowy"
+  },
+  {
+    "id": 491,
+    "time": "2024-12-20 00:42:00",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta z trybu tekstowego"
+  },
+  {
+    "id": 492,
+    "time": "2024-12-20 00:42:04",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 493,
+    "time": "2024-12-20 00:42:08",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb ciemny"
+  },
+  {
+    "id": 494,
+    "time": "2024-12-20 00:42:13",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta przez użytkownika"
+  },
+  {
+    "id": 1,
+    "time": "2024-12-20 00:44:58",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 2,
+    "time": "2024-12-20 00:45:02",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta przez użytkownika"
   }
 ]

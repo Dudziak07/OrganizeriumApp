@@ -1,6 +1,8 @@
 package view.textual;
 
+import com.google.gson.JsonPrimitive;
 import com.googlecode.lanterna.TerminalFacade;
+import controller.AppController;
 import controller.Logger;
 import controller.TaskController;
 import com.googlecode.lanterna.gui.GUIScreen;
@@ -13,10 +15,12 @@ import view.graphical.GraphicalMenuView;
 
 public class MainMenuView {
     private final TaskController controller;
+    private final AppController appController;
     private final GUIScreen guiScreen;
 
-    public MainMenuView(TaskController controller) {
+    public MainMenuView(TaskController controller, AppController appController) {
         this.controller = controller;
+        this.appController = appController;
         this.guiScreen = TerminalFacade.createGUIScreen();
         guiScreen.getScreen().startScreen();
     }
@@ -56,9 +60,16 @@ public class MainMenuView {
     // Metoda przełączająca na tryb graficzny
     private void switchToGraphicalMode() {
         Logger.log("Przełączanie trybu", "Przełączono na tryb graficzny");
-        guiScreen.getScreen().stopScreen(); // Zamknij ekran Lanterna
+
+        // Zapis trybu graficznego do pliku konfiguracyjnego
+        appController.saveConfig("mode", "graphical");
+
+        // Zamknięcie ekranu tekstowego
+        guiScreen.getScreen().stopScreen();
+
+        // Uruchomienie trybu graficznego z przekazaniem odpowiednich parametrów
         new Thread(() -> {
-            new GraphicalMenuView(controller).show(); // Uruchom tryb graficzny
+            new GraphicalMenuView(controller, appController).show();
         }).start();
     }
 
