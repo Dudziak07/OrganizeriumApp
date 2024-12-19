@@ -7,6 +7,8 @@ import view.textual.MainMenuView;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.Objects;
 
 public class GraphicalMenuView {
@@ -62,18 +64,10 @@ public class GraphicalMenuView {
         JPanel panel = new JPanel(new GridLayout(5, 1, 10, 10));
         panel.setBorder(BorderFactory.createEmptyBorder(20, 50, 20, 50));
 
-        // Dodanie przycisków
-        JButton addTaskButton = new JButton("Dodaj zadanie");
-        JButton showTasksButton = new JButton("Wyświetl zadania");
-        JButton editTaskButton = new JButton("Edytuj zadanie");
-        JButton deleteTaskButton = new JButton("Usuń zadanie");
-
-        // Dodanie akcji przyciskom
-        addTaskButton.addActionListener(e -> new GraphicalAddView(controller, frame).show());
-        showTasksButton.addActionListener(e -> new GraphicalListView(controller, frame).show());
-
-        // Edytuj zadanie - pobiera ID od użytkownika
-        editTaskButton.addActionListener(e -> {
+        // Dodanie przycisków z mechanizmem zmiany koloru
+        panel.add(createStyledButton("Dodaj zadanie", new Color(102, 255, 102, 204), new Color(51, 153, 51), e -> new GraphicalAddView(controller, frame).show()));
+        panel.add(createStyledButton("Wyświetl zadania", new Color(102, 178, 255, 204), new Color(0, 102, 204), e -> new GraphicalListView(controller, frame).show()));
+        panel.add(createStyledButton("Edytuj zadanie", new Color(255, 204, 102, 204), new Color(255, 153, 51), e -> {
             String taskIdInput = JOptionPane.showInputDialog(frame, "Podaj ID zadania do edycji:", "Edytuj zadanie", JOptionPane.QUESTION_MESSAGE);
             if (taskIdInput != null && !taskIdInput.trim().isEmpty()) {
                 try {
@@ -83,25 +77,36 @@ public class GraphicalMenuView {
                     JOptionPane.showMessageDialog(frame, "Nieprawidłowy format ID!", "Błąd", JOptionPane.ERROR_MESSAGE);
                 }
             }
-        });
+        }));
+        panel.add(createStyledButton("Usuń zadanie", new Color(255, 102, 102, 204), new Color(204, 0, 0), e -> new GraphicalDeleteView(controller, frame).show()));
 
-        deleteTaskButton.addActionListener(e -> new GraphicalDeleteView(controller, frame).show());
-
-        // Dodanie przycisków do panelu
-        panel.add(addTaskButton);
-        panel.add(showTasksButton);
-        panel.add(editTaskButton);
-        panel.add(deleteTaskButton);
-
+        // Dodanie przycisku wyłączania z ikoną w prawym dolnym rogu
         // Dodanie przycisku wyłączania z ikoną w prawym dolnym rogu
         JButton exitButton = new JButton();
         try {
             ImageIcon originalIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/icons/power_off.png")));
-            Image scaledImage = originalIcon.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH);
-            exitButton.setIcon(new ImageIcon(scaledImage));
+            ImageIcon hoverIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/icons/power_off_mouse.png")));
+
+            Image scaledOriginalIcon = originalIcon.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH);
+            Image scaledHoverIcon = hoverIcon.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH);
+
+            exitButton.setIcon(new ImageIcon(scaledOriginalIcon));
+
+            exitButton.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                    exitButton.setIcon(new ImageIcon(scaledHoverIcon)); // Zmiana ikony na hover
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+                    exitButton.setIcon(new ImageIcon(scaledOriginalIcon)); // Przywrócenie oryginalnej ikony
+                }
+            });
         } catch (Exception e) {
-            Logger.log("Błąd ładowania ikony", "Nie udało się załadować ikony wyłączania");
+            Logger.log("Błąd ładowania ikony", "Nie udało się załadować ikon wyłączania");
         }
+
         exitButton.setToolTipText("Zamknij aplikację");
         exitButton.setPreferredSize(new Dimension(50, 50));
         exitButton.setFocusPainted(false);
@@ -118,6 +123,39 @@ public class GraphicalMenuView {
 
         // Wyświetlenie okna
         frame.setVisible(true);
+    }
+
+    // Metoda do tworzenia stylizowanego przycisku
+    private JButton createStyledButton(String text, Color hoverColor, Color borderColor, java.awt.event.ActionListener action) {
+        JButton button = new JButton(text);
+        button.setBackground(Color.DARK_GRAY);
+        button.setForeground(Color.WHITE);
+        button.setFont(new Font("Arial", Font.BOLD, 16));
+        button.setFocusPainted(false);
+        button.setBorder(BorderFactory.createLineBorder(borderColor, 2)); // Dodanie cieniutkiej ramki
+        button.setContentAreaFilled(true);
+        button.setOpaque(true);
+
+        // Tworzenie efektu hover
+        button.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                button.setBackground(hoverColor);
+                button.setBorder(BorderFactory.createCompoundBorder(
+                        BorderFactory.createLineBorder(borderColor, 2), // Ramka zewnętrzna
+                        BorderFactory.createEmptyBorder(5, 5, 5, 5)     // Margines wewnętrzny
+                ));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                button.setBackground(Color.DARK_GRAY);
+                button.setBorder(BorderFactory.createLineBorder(borderColor, 2));
+            }
+        });
+
+        button.addActionListener(action);
+        return button;
     }
 
     // Metoda wyświetlająca potwierdzenie wyjścia z aplikacji
