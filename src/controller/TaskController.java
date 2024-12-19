@@ -20,13 +20,15 @@ import java.util.stream.Collectors;
 public class TaskController {
     private static TaskController instance; // Statyczna instancja klasy (Singleton)
     private final List<Task> tasks = new ArrayList<>();
-    private static final String FILE_NAME = "tasks.json";
+    private static final String CONFIG_FOLDER = "config";
+    private static final String FILE_NAME = CONFIG_FOLDER + "/tasks.json";
     private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
     private final IdManager idManager = new IdManager();
 
     // Prywatny konstruktor – Singleton
     private TaskController() {
         loadTasks();
+        ensureConfigFolderExists();
     }
 
     // Publiczna metoda zwracająca jedyną instancję klasy
@@ -129,6 +131,13 @@ public class TaskController {
 
     public int getNextId() {
         return idManager.getNextId();
+    }
+
+    private void ensureConfigFolderExists() {
+        File folder = new File(CONFIG_FOLDER);
+        if (!folder.exists()) {
+            folder.mkdir();
+        }
     }
 
     private void saveTasks() {
