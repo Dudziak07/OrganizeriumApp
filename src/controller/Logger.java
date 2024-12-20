@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonArray;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -12,12 +13,15 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Logger {
-    private static final String ID_FILE = "currentId.json";
-    private static final String LOG_FILE = "log.json";
+    private static final String CONFIG_FOLDER = "config";
+    private static final String LOG_FILE = CONFIG_FOLDER + "/log.json";
+    private static final String ID_FILE = CONFIG_FOLDER + "/currentId.json";
     private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
     private static int logCounter = loadLogCounter();
 
     public static void log(String action, String details) {
+        ensureConfigFolderExists();
+
         JsonObject logEntry = new JsonObject();
         logEntry.addProperty("id", ++logCounter);
         logEntry.addProperty("time", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
@@ -46,6 +50,18 @@ public class Logger {
             gson.toJson(logArray, writer);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    static {
+        ensureConfigFolderExists();
+        // Inicjalizacja logowania
+    }
+
+    private static void ensureConfigFolderExists() {
+        File folder = new File(CONFIG_FOLDER);
+        if (!folder.exists()) {
+            folder.mkdir();
         }
     }
 

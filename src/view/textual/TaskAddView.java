@@ -1,4 +1,4 @@
-package view;
+package view.textual;
 
 import controller.TaskController;
 import model.Task;
@@ -34,7 +34,7 @@ public class TaskAddView {
         TextBox categoryInput = new TextBox("", 20);
         TextBox deadlineInput = new TextBox("", 11);
 
-        panel.addComponent(new Label("Nazwa zadania:"));
+        panel.addComponent(new Label("Nazwa zadania*:"));
         panel.addComponent(nameInput);
         panel.addComponent(new Label("Kategoria:"));
         panel.addComponent(categoryInput);
