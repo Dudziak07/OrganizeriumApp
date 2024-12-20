@@ -4786,5 +4786,11 @@
     "time": "2024-12-20 23:19:01",
     "action": "Przełączenie motywu",
     "details": "Ustawiono tryb ciemny"
+  },
+  {
+    "id": 796,
+    "time": "2024-12-20 23:33:35",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
   }
 ]

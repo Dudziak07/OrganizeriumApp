@@ -201,7 +201,7 @@
   {
     "id": 58,
     "name": "acv",
-    "category": "",
+    "category": "TEST",
     "deadline": "",
     "priority": "*bez priorytetu*",
     "creationTime": "2024-12-18 22:16:19"
