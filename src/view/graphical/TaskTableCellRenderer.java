@@ -53,16 +53,24 @@ public class TaskTableCellRenderer extends DefaultTableCellRenderer {
             }
         }
 
-        // Ustawienia zaznaczenia
+        // Obsługa zaznaczenia
         if (isSelected) {
-            c.setFont(c.getFont().deriveFont(Font.BOLD, c.getFont().getSize() + 2));
+            if (appController.areAnimationsEnabled()) {
+                // Powiększenie czcionki tylko przy włączonych animacjach
+                c.setFont(c.getFont().deriveFont(Font.BOLD, c.getFont().getSize() + 2));
+            } else {
+                // Przy wyłączonych animacjach brak powiększenia
+                c.setFont(c.getFont().deriveFont(Font.PLAIN));
+            }
+            // Niezależnie od animacji, dodaj niebieską ramkę
             c.setBorder(BorderFactory.createLineBorder(Color.BLUE, 2));
         } else {
+            // Przywrócenie domyślnej czcionki i usunięcie ramki
             c.setFont(c.getFont().deriveFont(Font.PLAIN));
             c.setBorder(null);
         }
 
-        // Zastosuj kolory
+        // Zastosowanie kolorów
         c.setBackground(backgroundColor);
         c.setForeground(foregroundColor);
 
