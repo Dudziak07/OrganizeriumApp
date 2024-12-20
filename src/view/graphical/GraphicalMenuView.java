@@ -25,8 +25,10 @@ public class GraphicalMenuView {
         this.controller = controller;
         this.appController = appController;
 
-        setLookAndFeel(appController.isDarkMode());
+        // Inicjalizacja JFrame przed użyciem w setLookAndFeel
         this.frame = new JFrame("OrganizeriumApp - Menu Główne");
+
+        setLookAndFeel(appController.isDarkMode()); // Wywołanie po inicjalizacji frame
         Logger.log("Uruchomienie aplikacji", "Zainicjowano tryb graficzny");
 
         // Obsługa zamknięcia okna
@@ -88,9 +90,9 @@ public class GraphicalMenuView {
         buttonPanel.requestFocusInWindow();
 
         // Create buttons
-        JButton addTaskButton = createStyledButton("Dodaj zadanie", new Color(102, 255, 102), e -> new GraphicalAddView(controller, frame).show());
-        JButton listTaskButton = createStyledButton("Wyświetl zadania", new Color(102, 178, 255), e -> new GraphicalListView(controller, frame).show());
-        JButton editTaskButton = createStyledButton("Edytuj zadanie", new Color(255, 204, 102), e -> {
+        JButton addTaskButton = createStyledButton("Dodaj zadanie", new Color(102, 255, 102, 179), new Color(102, 255, 102, 255), e -> new GraphicalAddView(controller, frame).show());
+        JButton listTaskButton = createStyledButton("Wyświetl zadania", new Color(102, 178, 255, 179), new Color(102, 178, 255, 255), e -> new GraphicalListView(controller, frame).show());
+        JButton editTaskButton = createStyledButton("Edytuj zadanie", new Color(255, 204, 102, 179), new Color(255, 204, 102, 255), e -> {
             String taskIdInput = JOptionPane.showInputDialog(frame, "Podaj ID zadania do edycji:", "Edytuj zadanie", JOptionPane.QUESTION_MESSAGE);
             if (taskIdInput != null && !taskIdInput.trim().isEmpty()) {
                 try {
@@ -101,7 +103,7 @@ public class GraphicalMenuView {
                 }
             }
         });
-        JButton deleteTaskButton = createStyledButton("Usuń zadanie", new Color(255, 102, 102), e -> new GraphicalDeleteView(controller, frame).show());
+        JButton deleteTaskButton = createStyledButton("Usuń zadanie", new Color(255, 102, 102, 179), new Color(255, 102, 102, 255), e -> new GraphicalDeleteView(controller, frame).show());
         JButton exitButton = createExitButton();
 
         // Add buttons to panel and list
@@ -151,6 +153,13 @@ public class GraphicalMenuView {
             if (frame != null) {
                 SwingUtilities.updateComponentTreeUI(frame);
             }
+
+            // Ustawienie tła w zależności od trybu
+            Color backgroundColor = darkMode ? Color.DARK_GRAY : new Color(240, 240, 240); // Jasnoszary dla trybu jasnego
+            if (mainPanel != null) {
+                mainPanel.setBackground(backgroundColor);
+            }
+            frame.getContentPane().setBackground(backgroundColor); // Dostosowanie tła okna
         } catch (UnsupportedLookAndFeelException e) {
             Logger.log("Błąd motywu", "Nie udało się załadować motywu");
         }
@@ -160,28 +169,47 @@ public class GraphicalMenuView {
         frame.getContentPane().removeAll();
         mainPanel = createMainPanel();
         frame.add(mainPanel);
+
+        // Zastosowanie tła dla trybu
+        Color backgroundColor = appController.isDarkMode() ? Color.DARK_GRAY : new Color(240, 240, 240);
+        mainPanel.setBackground(backgroundColor);
+        frame.getContentPane().setBackground(backgroundColor);
+
         SwingUtilities.updateComponentTreeUI(frame);
         frame.repaint();
     }
 
-    private JButton createStyledButton(String text, Color hoverColor, ActionListener action) {
+    // Metoda do tworzenia stylizowanego przycisku
+    private JButton createStyledButton(String text, Color hoverColor, Color borderColor, java.awt.event.ActionListener action) {
         JButton button = new JButton(text);
 
-        // Ustawienia kolorów
-        Color defaultBackground = appController.isDarkMode() ? Color.DARK_GRAY : new Color(235, 235, 235);
-        Color defaultForeground = appController.isDarkMode() ? Color.WHITE : Color.BLACK;
+        // Kolory domyślne w zależności od trybu
+        Color defaultBackground = appController.isDarkMode() ? Color.DARK_GRAY : new Color(235, 235, 235); // Jasnoszary dla trybu jasnego
+        Color defaultForeground = appController.isDarkMode() ? Color.WHITE : Color.BLACK; // Czarny tekst w trybie jasnym
 
+        // Ustawienia stylu przycisku
         button.setBackground(defaultBackground);
         button.setForeground(defaultForeground);
         button.setFont(new Font("Arial", Font.BOLD, 16));
         button.setFocusPainted(false);
-        button.setBorder(BorderFactory.createLineBorder(hoverColor.darker(), 2));
+        button.setBorder(BorderFactory.createLineBorder(borderColor, 2)); // Ramka
         button.setContentAreaFilled(true);
         button.setOpaque(true);
 
-        // Obsługa kliknięcia
-        button.addActionListener(action);
+        // Obsługa hover
+        button.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                button.setBackground(hoverColor);
+            }
 
+            @Override
+            public void mouseExited(MouseEvent e) {
+                button.setBackground(defaultBackground);
+            }
+        });
+
+        button.addActionListener(action);
         return button;
     }
 

@@ -3196,5 +3196,263 @@
     "time": "2024-12-20 01:42:36",
     "action": "Zamknięcie aplikacji",
     "details": "Aplikacja została zamknięta przez użytkownika"
+  },
+  {
+    "id": 531,
+    "time": "2024-12-20 01:52:50",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 532,
+    "time": "2024-12-20 01:53:07",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta przez użytkownika"
+  },
+  {
+    "id": 533,
+    "time": "2024-12-20 01:59:14",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 534,
+    "time": "2024-12-20 01:59:19",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb jasny"
+  },
+  {
+    "id": 535,
+    "time": "2024-12-20 01:59:21",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb ciemny"
+  },
+  {
+    "id": 536,
+    "time": "2024-12-20 01:59:35",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta przez użytkownika"
+  },
+  {
+    "id": 537,
+    "time": "2024-12-20 02:00:08",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 538,
+    "time": "2024-12-20 02:00:30",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta przez użytkownika"
+  },
+  {
+    "id": 539,
+    "time": "2024-12-20 02:01:17",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 540,
+    "time": "2024-12-20 02:01:40",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta przez użytkownika"
+  },
+  {
+    "id": 541,
+    "time": "2024-12-20 02:05:59",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 542,
+    "time": "2024-12-20 02:06:53",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta przez użytkownika"
+  },
+  {
+    "id": 543,
+    "time": "2024-12-20 02:06:57",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 544,
+    "time": "2024-12-20 02:07:02",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta przez użytkownika"
+  },
+  {
+    "id": 545,
+    "time": "2024-12-20 02:08:03",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 546,
+    "time": "2024-12-20 02:08:24",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta przez użytkownika"
+  },
+  {
+    "id": 547,
+    "time": "2024-12-20 02:10:04",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 548,
+    "time": "2024-12-20 02:10:19",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb jasny"
+  },
+  {
+    "id": 549,
+    "time": "2024-12-20 02:10:21",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb ciemny"
+  },
+  {
+    "id": 550,
+    "time": "2024-12-20 02:10:23",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta przez użytkownika"
+  },
+  {
+    "id": 551,
+    "time": "2024-12-20 02:13:18",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 552,
+    "time": "2024-12-20 02:13:22",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb jasny"
+  },
+  {
+    "id": 553,
+    "time": "2024-12-20 02:13:29",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta przez użytkownika"
+  },
+  {
+    "id": 554,
+    "time": "2024-12-20 02:13:56",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 555,
+    "time": "2024-12-20 02:13:58",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb ciemny"
+  },
+  {
+    "id": 556,
+    "time": "2024-12-20 02:14:04",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta przez użytkownika"
+  },
+  {
+    "id": 557,
+    "time": "2024-12-20 02:16:23",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 558,
+    "time": "2024-12-20 02:16:30",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb jasny"
+  },
+  {
+    "id": 559,
+    "time": "2024-12-20 02:16:33",
+    "action": "Przełączanie trybu",
+    "details": "Przełączono na tryb tekstowy"
+  },
+  {
+    "id": 560,
+    "time": "2024-12-20 02:16:37",
+    "action": "Przełączanie trybu",
+    "details": "Przełączono na tryb graficzny"
+  },
+  {
+    "id": 561,
+    "time": "2024-12-20 02:16:37",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 562,
+    "time": "2024-12-20 02:16:39",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta przez użytkownika"
+  },
+  {
+    "id": 563,
+    "time": "2024-12-20 02:16:41",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 564,
+    "time": "2024-12-20 02:16:47",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta przez użytkownika"
+  },
+  {
+    "id": 565,
+    "time": "2024-12-20 02:17:23",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 566,
+    "time": "2024-12-20 02:17:31",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta przez użytkownika"
+  },
+  {
+    "id": 567,
+    "time": "2024-12-20 02:17:58",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 568,
+    "time": "2024-12-20 02:18:41",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta przez użytkownika"
+  },
+  {
+    "id": 569,
+    "time": "2024-12-20 02:19:45",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 570,
+    "time": "2024-12-20 02:20:23",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta przez użytkownika"
+  },
+  {
+    "id": 571,
+    "time": "2024-12-20 02:20:49",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 572,
+    "time": "2024-12-20 02:20:52",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb ciemny"
+  },
+  {
+    "id": 573,
+    "time": "2024-12-20 02:20:54",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta przez użytkownika"
   }
 ]
