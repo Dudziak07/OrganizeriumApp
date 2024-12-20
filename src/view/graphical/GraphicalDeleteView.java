@@ -1,6 +1,7 @@
 package view.graphical;
 
 import controller.TaskController;
+import controller.ImageController; // Dodano kontroler do obsługi ikon
 import model.Task;
 
 import javax.swing.*;
@@ -50,20 +51,40 @@ public class GraphicalDeleteView {
                         dialog,
                         "Czy na pewno chcesz usunąć to zadanie?\n\n" + taskDetails,
                         "Potwierdzenie",
-                        JOptionPane.YES_NO_OPTION
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.QUESTION_MESSAGE,
+                        ImageController.resizeIcon(new ImageIcon("resources/icons/error_icon.png"), 50, 50)
                 );
 
                 if (confirmation == JOptionPane.YES_OPTION) {
                     boolean success = controller.deleteTask(task);
                     if (success) {
-                        JOptionPane.showMessageDialog(dialog, "Zadanie zostało usunięte pomyślnie!");
+                        JOptionPane.showMessageDialog(
+                                dialog,
+                                "<html><b>Zadanie zostało usunięte pomyślnie!</b><br>" + taskDetails + "</html>",
+                                "Usunięto zadanie",
+                                JOptionPane.INFORMATION_MESSAGE,
+                                ImageController.resizeIcon(new ImageIcon("resources/icons/info_icon.png"), 50, 50)
+                        );
                         dialog.dispose();
                     } else {
-                        JOptionPane.showMessageDialog(dialog, "Nie udało się usunąć zadania!", "Błąd", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(
+                                dialog,
+                                "Nie udało się usunąć zadania!",
+                                "Błąd",
+                                JOptionPane.ERROR_MESSAGE,
+                                ImageController.resizeIcon(new ImageIcon("resources/icons/error_icon.png"), 50, 50)
+                        );
                     }
                 }
             } else {
-                JOptionPane.showMessageDialog(dialog, "Nie znaleziono zadania!", "Błąd", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(
+                        dialog,
+                        "Nie znaleziono zadania!",
+                        "Błąd",
+                        JOptionPane.ERROR_MESSAGE,
+                        ImageController.resizeIcon(new ImageIcon("resources/icons/error404_icon.png"), 50, 50)
+                );
             }
         });
 
@@ -72,12 +93,20 @@ public class GraphicalDeleteView {
                     dialog,
                     "Czy na pewno chcesz usunąć wszystkie zadania?",
                     "Potwierdzenie",
-                    JOptionPane.YES_NO_OPTION
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE,
+                    ImageController.resizeIcon(new ImageIcon("resources/icons/error_icon.png"), 50, 50)
             );
 
             if (confirmation == JOptionPane.YES_OPTION) {
                 controller.removeAllTasks();
-                JOptionPane.showMessageDialog(dialog, "Wszystkie zadania zostały usunięte!");
+                JOptionPane.showMessageDialog(
+                        dialog,
+                        "Wszystkie zadania zostały usunięte!",
+                        "Usunięto wszystkie zadania",
+                        JOptionPane.INFORMATION_MESSAGE,
+                        ImageController.resizeIcon(new ImageIcon("resources/icons/info_icon.png"), 50, 50)
+                );
                 dialog.dispose();
             }
         });

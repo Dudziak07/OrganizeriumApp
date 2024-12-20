@@ -1,6 +1,7 @@
 package view.graphical;
 
 import controller.TaskController;
+import controller.ImageController;
 import model.Task;
 
 import javax.swing.*;
@@ -81,20 +82,65 @@ public class GraphicalListView {
                 int taskId = (int) taskTable.getValueAt(selectedRow, 0);
                 Task task = controller.getTaskById(taskId);
 
-                int confirmation = JOptionPane.showConfirmDialog(dialog,
-                        "Czy na pewno chcesz usunąć to zadanie?\n" +
-                                "ID: " + task.getId() + "\n" +
-                                "Nazwa: " + task.getName() + "\n" +
-                                "Kategoria: " + task.getCategory() + "\n" +
-                                "Priorytet: " + task.getPriority() + "\n" +
-                                "Termin: " + task.getDeadline() + "\n" +
-                                "Data utworzenia: " + task.getCreationTime(),
+                if (task == null) {
+                    JOptionPane.showMessageDialog(
+                            dialog,
+                            "Nie można znaleźć zadania o podanym ID.",
+                            "Błąd",
+                            JOptionPane.ERROR_MESSAGE,
+                            ImageController.resizeIcon(new ImageIcon("resources/icons/error_icon.png"), 50, 50) // Zmiana rozmiaru na 40x40
+                    );
+                    return;
+                }
+
+                int confirmation = JOptionPane.showConfirmDialog(
+                        dialog,
+                        String.format(
+                                "<html><b>Czy na pewno chcesz usunąć to zadanie?</b><br>" +
+                                        "ID: %d<br>" +
+                                        "Nazwa: %s<br>" +
+                                        "Kategoria: %s<br>" +
+                                        "Priorytet: %s<br>" +
+                                        "Termin: %s<br>" +
+                                        "Data utworzenia: %s</html>",
+                                task.getId(),
+                                task.getName(),
+                                task.getCategory() != null ? task.getCategory() : "Brak",
+                                task.getPriority() != null ? task.getPriority() : "Brak",
+                                task.getDeadline() != null ? task.getDeadline() : "Brak",
+                                task.getCreationTime() != null ? task.getCreationTime() : "Brak"
+                        ),
                         "Potwierdzenie usunięcia",
-                        JOptionPane.YES_NO_OPTION);
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.WARNING_MESSAGE,
+                        ImageController.resizeIcon(new ImageIcon("resources/icons/error_icon.png"), 50, 50) // Zmiana rozmiaru na 40x40
+                );
 
                 if (confirmation == JOptionPane.YES_OPTION) {
                     controller.removeTaskById(taskId);
                     loadTasksToTable(tableModel, controller.getTasks());
+
+                    JOptionPane.showMessageDialog(
+                            dialog,
+                            String.format(
+                                    "<html><b>Zadanie zostało usunięte pomyślnie!</b><br>" +
+                                            "ID: %d<br>" +
+                                            "Nazwa: %s<br>" +
+                                            "Kategoria: %s<br>" +
+                                            "Priorytet: %s<br>" +
+                                            "Termin: %s<br>" +
+                                            "Data utworzenia: %s</html>",
+                                    task.getId(),
+                                    task.getName(),
+                                    task.getCategory() != null ? task.getCategory() : "Brak",
+                                    task.getPriority() != null ? task.getPriority() : "Brak",
+                                    task.getDeadline() != null ? task.getDeadline() : "Brak",
+                                    task.getCreationTime() != null ? task.getCreationTime() : "Brak"
+                            ),
+                            "Usunięto zadanie",
+                            JOptionPane.INFORMATION_MESSAGE,
+                            ImageController.resizeIcon(new ImageIcon("resources/icons/info_icon.png"), 50, 50) // Zmiana rozmiaru na 40x40
+                    );
                 }
             }
         });

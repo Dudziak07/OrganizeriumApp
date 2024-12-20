@@ -3,6 +3,7 @@ package view.graphical;
 import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import controller.AppController;
+import controller.ImageController;
 import controller.Logger;
 import controller.TaskController;
 import view.textual.MainMenuView;
@@ -219,8 +220,8 @@ public class GraphicalMenuView {
             ImageIcon originalIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/icons/power_off.png")));
             ImageIcon hoverIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/icons/power_off_mouse.png")));
 
-            Image scaledOriginalIcon = originalIcon.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH);
-            Image scaledHoverIcon = hoverIcon.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH);
+            Image scaledOriginalIcon = originalIcon.getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH);
+            Image scaledHoverIcon = hoverIcon.getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH);
 
             exitButton.setIcon(new ImageIcon(scaledOriginalIcon));
 
@@ -269,12 +270,12 @@ public class GraphicalMenuView {
                 frame,
                 "Czy na pewno chcesz zamknąć aplikację?",
                 "Potwierdzenie zamknięcia",
-                JOptionPane.YES_NO_OPTION
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                ImageController.resizeIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("/icons/power_off_mouse.png"))), 50, 50)
         );
 
         if (confirmation == JOptionPane.YES_OPTION) {
-            Logger.log("Zamknięcie aplikacji", "Aplikacja została zamknięta przez użytkownika");
-            frame.dispose();
             System.exit(0);
         }
     }

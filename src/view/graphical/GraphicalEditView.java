@@ -1,6 +1,7 @@
 package view.graphical;
 
 import controller.TaskController;
+import controller.ImageController; // Import do obsługi ikon
 import model.Task;
 
 import javax.swing.*;
@@ -19,7 +20,13 @@ public class GraphicalEditView {
         // Pobranie zadania przez kontroler
         Task task = controller.getTaskById(taskId);
         if (task == null) {
-            JOptionPane.showMessageDialog(parentFrame, "Nie znaleziono zadania o ID: " + taskId, "Błąd", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(
+                    parentFrame,
+                    "Nie znaleziono zadania o ID: " + taskId,
+                    "Błąd",
+                    JOptionPane.ERROR_MESSAGE,
+                    ImageController.resizeIcon(new ImageIcon("resources/icons/error404_icon.png"), 50, 50)
+            );
             return;
         }
 
@@ -62,10 +69,32 @@ public class GraphicalEditView {
             );
 
             if (updated) {
-                JOptionPane.showMessageDialog(dialog, "Zadanie zaktualizowano pomyślnie!");
+                JOptionPane.showMessageDialog(
+                        dialog,
+                        String.format("<html><b>Zadanie zaktualizowano pomyślnie!</b><br>" +
+                                        "ID: %d<br>" +
+                                        "Nazwa: %s<br>" +
+                                        "Kategoria: %s<br>" +
+                                        "Priorytet: %s<br>" +
+                                        "Termin: %s</html>",
+                                task.getId(),
+                                nameField.getText().trim(),
+                                categoryField.getText().trim(),
+                                priorityBox.getSelectedItem(),
+                                deadlineField.getText().trim()
+                        ),
+                        "Zadanie zaktualizowano",
+                        JOptionPane.INFORMATION_MESSAGE,
+                        ImageController.resizeIcon(new ImageIcon("resources/icons/info_icon.png"), 50, 50)
+                );
                 dialog.dispose();
             } else {
-                JOptionPane.showMessageDialog(dialog, "Nie udało się zaktualizować zadania.", "Błąd", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(
+                        dialog,
+                        "Nie udało się zaktualizować zadania.",
+                        "Błąd",
+                        JOptionPane.ERROR_MESSAGE
+                );
             }
         });
 

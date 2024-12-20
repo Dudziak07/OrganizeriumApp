@@ -1,67 +1,22 @@
 [
   {
-    "id": 14,
-    "name": "vs",
-    "category": "",
-    "deadline": "",
-    "priority": ""
-  },
-  {
     "id": 16,
-    "name": "zmiana nazwy",
+    "name": "zmiana nazwy2",
     "category": "",
     "deadline": "",
-    "priority": ""
-  },
-  {
-    "id": 17,
-    "name": "sf",
-    "category": "",
-    "deadline": "",
-    "priority": ""
-  },
-  {
-    "id": 22,
-    "name": "sv",
-    "category": "",
-    "deadline": "",
-    "priority": ""
+    "priority": "*bez priorytetu*"
   },
   {
     "id": 25,
-    "name": "eg",
+    "name": "egasf",
     "category": "",
     "deadline": "",
-    "priority": "",
+    "priority": "bardzo ważne",
     "creationTime": "2024-11-16 13:42:18"
   },
   {
-    "id": 27,
-    "name": "siemka",
-    "category": "",
-    "deadline": "",
-    "priority": "",
-    "creationTime": "2024-11-16 13:44:08"
-  },
-  {
-    "id": 28,
-    "name": "siemkadat",
-    "category": "",
-    "deadline": "1234-12-22",
-    "priority": "",
-    "creationTime": "2024-11-16 13:44:26"
-  },
-  {
-    "id": 29,
-    "name": "ad",
-    "category": "",
-    "deadline": "",
-    "priority": "",
-    "creationTime": "2024-11-16 13:46:15"
-  },
-  {
     "id": 30,
-    "name": "Test edycji2",
+    "name": "Test edycji23",
     "category": "TEST",
     "deadline": "2024-01-01",
     "priority": "bez pośpiechu",
@@ -250,5 +205,13 @@
     "deadline": "",
     "priority": "*bez priorytetu*",
     "creationTime": "2024-12-18 22:16:19"
+  },
+  {
+    "id": 59,
+    "name": "af",
+    "category": "",
+    "deadline": "",
+    "priority": "*bez priorytetu*",
+    "creationTime": "2024-12-20 13:04:05"
   }
 ]

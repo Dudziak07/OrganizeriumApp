@@ -7,7 +7,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class IdManager {
-    private static final String ID_FILE = "currentId.json";
+    private static final String CONFIG_FOLDER = "config";
+    private static final String ID_FILE = CONFIG_FOLDER + "/currentId.json";
     private int currentId;
 
     public IdManager() {
