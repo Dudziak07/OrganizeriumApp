@@ -110,7 +110,7 @@ public class GraphicalMenuView {
 
         // Create buttons
         JButton addTaskButton = createStyledButton("Dodaj zadanie", new Color(102, 255, 102, 179), new Color(102, 255, 102, 255), e -> new GraphicalAddView(controller, frame).show());
-        JButton listTaskButton = createStyledButton("Wyświetl zadania", new Color(102, 178, 255, 179), new Color(102, 178, 255, 255), e -> new GraphicalListView(controller, frame).show());
+        JButton listTaskButton = createStyledButton("Wyświetl zadania", new Color(102, 178, 255, 179), new Color(102, 178, 255, 255), e -> new GraphicalListView(controller, frame, appController).show());
         JButton editTaskButton = createStyledButton("Edytuj zadanie", new Color(255, 204, 102, 179), new Color(255, 204, 102, 255), e -> {
             String taskIdInput = JOptionPane.showInputDialog(frame, "Podaj ID zadania do edycji:", "Edytuj zadanie", JOptionPane.QUESTION_MESSAGE);
             if (taskIdInput != null && !taskIdInput.trim().isEmpty()) {
@@ -185,12 +185,19 @@ public class GraphicalMenuView {
     }
 
     private void refreshView() {
-        // Zastosowanie tła dla aktualnego trybu
         Color backgroundColor = appController.isDarkMode() ? Color.DARK_GRAY : new Color(240, 240, 240);
+        Color buttonBackgroundColor = appController.isDarkMode() ? Color.DARK_GRAY : new Color(235, 235, 235);
+        Color buttonForegroundColor = appController.isDarkMode() ? Color.WHITE : Color.BLACK;
+
         mainPanel.setBackground(backgroundColor);
         frame.getContentPane().setBackground(backgroundColor);
 
-        // Odśwież tylko panel główny
+        buttons.forEach(button -> {
+            button.setBackground(buttonBackgroundColor); // Ustawienie koloru tła
+            button.setForeground(buttonForegroundColor); // Ustawienie koloru tekstu
+            button.repaint(); // Odświeżanie wyglądu
+        });
+
         mainPanel.revalidate();
         mainPanel.repaint();
     }
@@ -212,48 +219,49 @@ public class GraphicalMenuView {
         button.setContentAreaFilled(true);
         button.setOpaque(true);
 
-        // Początkowy rozmiar przycisku
+        // Zapis oryginalnego rozmiaru i czcionki
+        Font originalFont = button.getFont();
         Dimension originalSize = button.getPreferredSize();
 
         // Obsługa efektu hover
         button.addMouseListener(new MouseAdapter() {
+            private final Color initialBackground = defaultBackground;
+
             @Override
             public void mouseEntered(MouseEvent e) {
-                if (appController.areAnimationsEnabled()) { // Tylko gdy animacje są włączone
-                    button.setBackground(hoverColor);
-
-                    // Powiększ przycisk
+                if (appController.areAnimationsEnabled()) {
+                    // Powiększenie czcionki i rozmiaru przycisku
+                    button.setFont(originalFont.deriveFont(originalFont.getSize() + 2f));
                     button.setPreferredSize(new Dimension(
                             (int) (originalSize.width * 1.1),
                             (int) (originalSize.height * 1.1)
                     ));
-                    button.setFont(button.getFont().deriveFont(18f)); // Powiększ czcionkę
-                    button.revalidate(); // Aktualizacja rozmiaru
-                    button.repaint(); // Odśwież wygląd
-                } else {
-                    button.setBackground(hoverColor); // Tylko podświetlenie bez animacji
                 }
+                button.setBackground(hoverColor);
+                button.revalidate();
+                button.repaint();
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                if (appController.areAnimationsEnabled()) { // Tylko gdy animacje są włączone
-                    button.setPreferredSize(originalSize);
-                    button.setFont(button.getFont().deriveFont(16f)); // Przywróć czcionkę
-                    button.revalidate(); // Aktualizacja rozmiaru
-                    button.repaint(); // Odśwież wygląd
-                }
-                button.setBackground(defaultBackground);
+                // Przywrócenie oryginalnej czcionki i rozmiaru przycisku
+                button.setFont(originalFont);
+                button.setPreferredSize(originalSize);
+
+                // Przywrócenie tła na podstawie aktualnego trybu
+                button.setBackground(appController.isDarkMode() ? Color.DARK_GRAY : new Color(235, 235, 235));
+                button.revalidate();
+                button.repaint();
             }
 
             @Override
             public void mousePressed(MouseEvent e) {
-                button.setBackground(pressedColor); // Podświetlenie przy kliknięciu
+                button.setBackground(pressedColor);
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                button.setBackground(hoverColor); // Powrót do koloru hover
+                button.setBackground(hoverColor);
             }
         });
 
@@ -378,6 +386,7 @@ public class GraphicalMenuView {
                     button.setVisible(true);
                     timer.stop(); // Zatrzymanie timera
                 }
+                // Ustaw przezroczystość, ale nie zmieniaj koloru
                 button.setBackground(new Color(
                         button.getBackground().getRed(),
                         button.getBackground().getGreen(),

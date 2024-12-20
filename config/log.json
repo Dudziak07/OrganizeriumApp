@@ -4354,5 +4354,335 @@
     "time": "2024-12-20 14:28:33",
     "action": "Opcje",
     "details": "Animacje włączone"
+  },
+  {
+    "id": 724,
+    "time": "2024-12-20 14:36:41",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 725,
+    "time": "2024-12-20 14:36:44",
+    "action": "Opcje",
+    "details": "Animacje wyłączone"
+  },
+  {
+    "id": 726,
+    "time": "2024-12-20 14:36:50",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 727,
+    "time": "2024-12-20 14:36:51",
+    "action": "Opcje",
+    "details": "Animacje włączone"
+  },
+  {
+    "id": 728,
+    "time": "2024-12-20 21:46:43",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 729,
+    "time": "2024-12-20 21:47:09",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb jasny"
+  },
+  {
+    "id": 730,
+    "time": "2024-12-20 21:47:26",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb ciemny"
+  },
+  {
+    "id": 731,
+    "time": "2024-12-20 21:52:17",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 732,
+    "time": "2024-12-20 21:52:20",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb jasny"
+  },
+  {
+    "id": 733,
+    "time": "2024-12-20 21:52:22",
+    "action": "Opcje",
+    "details": "Animacje wyłączone"
+  },
+  {
+    "id": 734,
+    "time": "2024-12-20 21:52:25",
+    "action": "Opcje",
+    "details": "Animacje włączone"
+  },
+  {
+    "id": 735,
+    "time": "2024-12-20 21:52:36",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb ciemny"
+  },
+  {
+    "id": 736,
+    "time": "2024-12-20 21:55:14",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 737,
+    "time": "2024-12-20 21:55:18",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb jasny"
+  },
+  {
+    "id": 738,
+    "time": "2024-12-20 21:55:22",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb ciemny"
+  },
+  {
+    "id": 739,
+    "time": "2024-12-20 21:55:24",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb jasny"
+  },
+  {
+    "id": 740,
+    "time": "2024-12-20 21:55:26",
+    "action": "Opcje",
+    "details": "Animacje wyłączone"
+  },
+  {
+    "id": 741,
+    "time": "2024-12-20 21:55:29",
+    "action": "Opcje",
+    "details": "Animacje włączone"
+  },
+  {
+    "id": 742,
+    "time": "2024-12-20 21:55:30",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb ciemny"
+  },
+  {
+    "id": 743,
+    "time": "2024-12-20 21:55:31",
+    "action": "Przełączanie trybu",
+    "details": "Przełączono na tryb tekstowy"
+  },
+  {
+    "id": 744,
+    "time": "2024-12-20 21:55:34",
+    "action": "Przełączanie trybu",
+    "details": "Przełączono na tryb graficzny"
+  },
+  {
+    "id": 745,
+    "time": "2024-12-20 21:55:34",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 746,
+    "time": "2024-12-20 21:55:35",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb jasny"
+  },
+  {
+    "id": 747,
+    "time": "2024-12-20 21:59:02",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 748,
+    "time": "2024-12-20 21:59:08",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb ciemny"
+  },
+  {
+    "id": 749,
+    "time": "2024-12-20 21:59:11",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb jasny"
+  },
+  {
+    "id": 750,
+    "time": "2024-12-20 21:59:22",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 751,
+    "time": "2024-12-20 21:59:26",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb ciemny"
+  },
+  {
+    "id": 752,
+    "time": "2024-12-20 21:59:28",
+    "action": "Opcje",
+    "details": "Animacje wyłączone"
+  },
+  {
+    "id": 753,
+    "time": "2024-12-20 21:59:30",
+    "action": "Opcje",
+    "details": "Animacje włączone"
+  },
+  {
+    "id": 754,
+    "time": "2024-12-20 22:01:39",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 755,
+    "time": "2024-12-20 22:01:46",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb jasny"
+  },
+  {
+    "id": 756,
+    "time": "2024-12-20 22:01:50",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb ciemny"
+  },
+  {
+    "id": 757,
+    "time": "2024-12-20 22:01:51",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb jasny"
+  },
+  {
+    "id": 758,
+    "time": "2024-12-20 22:03:44",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 759,
+    "time": "2024-12-20 22:03:49",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb ciemny"
+  },
+  {
+    "id": 760,
+    "time": "2024-12-20 22:03:54",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb jasny"
+  },
+  {
+    "id": 761,
+    "time": "2024-12-20 22:03:56",
+    "action": "Opcje",
+    "details": "Animacje wyłączone"
+  },
+  {
+    "id": 762,
+    "time": "2024-12-20 22:03:57",
+    "action": "Opcje",
+    "details": "Animacje włączone"
+  },
+  {
+    "id": 763,
+    "time": "2024-12-20 22:06:03",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 764,
+    "time": "2024-12-20 22:06:10",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb ciemny"
+  },
+  {
+    "id": 765,
+    "time": "2024-12-20 22:06:14",
+    "action": "Opcje",
+    "details": "Animacje wyłączone"
+  },
+  {
+    "id": 766,
+    "time": "2024-12-20 22:06:19",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb jasny"
+  },
+  {
+    "id": 767,
+    "time": "2024-12-20 22:06:22",
+    "action": "Opcje",
+    "details": "Animacje włączone"
+  },
+  {
+    "id": 768,
+    "time": "2024-12-20 22:06:23",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb ciemny"
+  },
+  {
+    "id": 769,
+    "time": "2024-12-20 22:06:26",
+    "action": "Opcje",
+    "details": "Animacje wyłączone"
+  },
+  {
+    "id": 770,
+    "time": "2024-12-20 22:06:29",
+    "action": "Opcje",
+    "details": "Animacje włączone"
+  },
+  {
+    "id": 771,
+    "time": "2024-12-20 22:08:16",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 772,
+    "time": "2024-12-20 22:08:23",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb jasny"
+  },
+  {
+    "id": 773,
+    "time": "2024-12-20 22:08:29",
+    "action": "Opcje",
+    "details": "Animacje wyłączone"
+  },
+  {
+    "id": 774,
+    "time": "2024-12-20 22:08:32",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb ciemny"
+  },
+  {
+    "id": 775,
+    "time": "2024-12-20 22:08:36",
+    "action": "Opcje",
+    "details": "Animacje włączone"
+  },
+  {
+    "id": 776,
+    "time": "2024-12-20 22:21:16",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 777,
+    "time": "2024-12-20 22:21:27",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb jasny"
+  },
+  {
+    "id": 778,
+    "time": "2024-12-20 22:21:59",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb ciemny"
   }
 ]

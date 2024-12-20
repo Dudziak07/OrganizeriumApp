@@ -1,5 +1,6 @@
 package view.graphical;
 
+import controller.AppController;
 import controller.TaskController;
 import controller.ImageController;
 import model.Task;
@@ -15,10 +16,12 @@ import java.util.Objects;
 public class GraphicalListView {
     private final TaskController controller;
     private final JFrame parentFrame;
+    private final AppController appController;
 
-    public GraphicalListView(TaskController controller, JFrame parentFrame) {
+    public GraphicalListView(TaskController controller, JFrame parentFrame, AppController appController) {
         this.controller = controller;
         this.parentFrame = parentFrame;
+        this.appController = appController;
     }
 
     public void show() {
@@ -35,6 +38,10 @@ public class GraphicalListView {
 
         // Tworzenie tabeli i osadzenie jej w scroll panelu
         JTable taskTable = new JTable(tableModel);
+
+        // Ustawienie rendererów do kolorowania wierszy
+        taskTable.setDefaultRenderer(Object.class, new TaskTableCellRenderer(controller, appController));
+
         JScrollPane scrollPane = new JScrollPane(taskTable);
 
         // Obsługa menu kontekstowego (prawy przycisk)
