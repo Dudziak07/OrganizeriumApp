@@ -4840,5 +4840,41 @@
     "time": "2024-12-21 00:00:47",
     "action": "Opcje",
     "details": "Animacje włączone"
+  },
+  {
+    "id": 805,
+    "time": "2024-12-21 00:02:14",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 806,
+    "time": "2024-12-21 00:03:00",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 807,
+    "time": "2024-12-21 00:05:00",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 808,
+    "time": "2024-12-21 00:06:05",
+    "action": "Dodano zadanie",
+    "details": "id:[60] (dupa), Kategoria: dupna, Priorytet: bardzo ważne, Termin: 2020-12-10, Utworzone: 2024-12-21 00:06:05"
+  },
+  {
+    "id": 809,
+    "time": "2024-12-21 00:11:22",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 810,
+    "time": "2024-12-21 00:12:15",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
   }
 ]

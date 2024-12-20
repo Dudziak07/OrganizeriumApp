@@ -25,6 +25,10 @@ public class GraphicalListView {
     }
 
     public void show() {
+        UIManager.put("OptionPane.yesButtonText", "Tak");
+        UIManager.put("OptionPane.noButtonText", "Nie");
+        UIManager.put("OptionPane.cancelButtonText", "Anuluj");
+
         // Tworzenie okna dialogowego
         JDialog dialog = new JDialog(parentFrame, "Lista zadań", true);
         dialog.setSize(900, 500);

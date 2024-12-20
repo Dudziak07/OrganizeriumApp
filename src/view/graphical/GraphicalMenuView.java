@@ -348,6 +348,10 @@ public class GraphicalMenuView {
     }
 
     private void showExitConfirmation() {
+        UIManager.put("OptionPane.yesButtonText", "Tak");
+        UIManager.put("OptionPane.noButtonText", "Nie");
+        UIManager.put("OptionPane.cancelButtonText", "Anuluj");
+
         int confirmation = JOptionPane.showConfirmDialog(
                 frame,
                 "Czy na pewno chcesz zamknąć aplikację?",

@@ -35,19 +35,19 @@ public class TaskTableCellRenderer extends DefaultTableCellRenderer {
         if (priority != null) {
             switch (priority) {
                 case "bardzo ważne":
-                    backgroundColor = new Color(255, 102, 102);
+                    backgroundColor = new Color(255, 102, 102, 204);
                     foregroundColor = isDarkMode ? Color.BLACK : Color.BLACK;
                     break;
                 case "ważne":
-                    backgroundColor = new Color(255, 178, 102);
+                    backgroundColor = new Color(255, 178, 102, 204);
                     foregroundColor = isDarkMode ? Color.BLACK : Color.BLACK;
                     break;
                 case "normalne":
-                    backgroundColor = new Color(255, 255, 153);
+                    backgroundColor = new Color(255, 255, 153, 204);
                     foregroundColor = isDarkMode ? Color.BLACK : Color.BLACK;
                     break;
                 case "bez pośpiechu":
-                    backgroundColor = new Color(204, 255, 204);
+                    backgroundColor = new Color(204, 255, 204, 204);
                     foregroundColor = isDarkMode ? Color.BLACK : Color.BLACK;
                     break;
             }

@@ -130,7 +130,7 @@
     "id": 48,
     "name": "kocham",
     "category": "milosc",
-    "deadline": "",
+    "deadline": "2024-12-22",
     "priority": "bardzo ważne",
     "creationTime": "2024-11-23 15:13:17"
   },
@@ -213,5 +213,13 @@
     "deadline": "",
     "priority": "*bez priorytetu*",
     "creationTime": "2024-12-20 13:04:05"
+  },
+  {
+    "id": 60,
+    "name": "dupa",
+    "category": "dupna",
+    "deadline": "2020-12-10",
+    "priority": "bardzo ważne",
+    "creationTime": "2024-12-21 00:06:05"
   }
 ]
