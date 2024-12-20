@@ -9,8 +9,7 @@ import view.textual.MainMenuView;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import java.util.Objects;
 
 public class GraphicalMenuView {
@@ -18,16 +17,26 @@ public class GraphicalMenuView {
     private final AppController appController;
     private final JFrame frame;
     private JPanel mainPanel;
+    private final java.util.List<JButton> buttons = new java.util.ArrayList<>();
+    private boolean isKeyboardNavigationActive = false; // Aktywacja dopiero po klawiaturze
+    private int selectedButtonIndex = -1; // Żaden przycisk nieaktywny na starcie
 
     public GraphicalMenuView(TaskController controller, AppController appController) {
         this.controller = controller;
         this.appController = appController;
 
         setLookAndFeel(appController.isDarkMode());
-
         this.frame = new JFrame("OrganizeriumApp - Menu Główne");
-
         Logger.log("Uruchomienie aplikacji", "Zainicjowano tryb graficzny");
+
+        // Obsługa zamknięcia okna
+        frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        frame.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                showExitConfirmation();
+            }
+        });
     }
 
     public void show() {
@@ -75,10 +84,13 @@ public class GraphicalMenuView {
 
         JPanel buttonPanel = new JPanel(new GridLayout(5, 1, 10, 10));
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(20, 50, 10, 50));
+        buttonPanel.setFocusable(true);
+        buttonPanel.requestFocusInWindow();
 
-        buttonPanel.add(createStyledButton("Dodaj zadanie", new Color(102, 255, 102, 204), new Color(51, 153, 51), e -> new GraphicalAddView(controller, frame).show()));
-        buttonPanel.add(createStyledButton("Wyświetl zadania", new Color(102, 178, 255, 204), new Color(0, 102, 204), e -> new GraphicalListView(controller, frame).show()));
-        buttonPanel.add(createStyledButton("Edytuj zadanie", new Color(255, 204, 102, 204), new Color(255, 153, 51), e -> {
+        // Create buttons
+        JButton addTaskButton = createStyledButton("Dodaj zadanie", new Color(102, 255, 102), e -> new GraphicalAddView(controller, frame).show());
+        JButton listTaskButton = createStyledButton("Wyświetl zadania", new Color(102, 178, 255), e -> new GraphicalListView(controller, frame).show());
+        JButton editTaskButton = createStyledButton("Edytuj zadanie", new Color(255, 204, 102), e -> {
             String taskIdInput = JOptionPane.showInputDialog(frame, "Podaj ID zadania do edycji:", "Edytuj zadanie", JOptionPane.QUESTION_MESSAGE);
             if (taskIdInput != null && !taskIdInput.trim().isEmpty()) {
                 try {
@@ -88,17 +100,48 @@ public class GraphicalMenuView {
                     JOptionPane.showMessageDialog(frame, "Nieprawidłowy format ID!", "Błąd", JOptionPane.ERROR_MESSAGE);
                 }
             }
-        }));
-        buttonPanel.add(createStyledButton("Usuń zadanie", new Color(255, 102, 102, 204), new Color(204, 0, 0), e -> new GraphicalDeleteView(controller, frame).show()));
-
+        });
+        JButton deleteTaskButton = createStyledButton("Usuń zadanie", new Color(255, 102, 102), e -> new GraphicalDeleteView(controller, frame).show());
         JButton exitButton = createExitButton();
 
-        JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-        bottomPanel.add(exitButton);
+        // Add buttons to panel and list
+        buttonPanel.add(addTaskButton);
+        buttonPanel.add(listTaskButton);
+        buttonPanel.add(editTaskButton);
+        buttonPanel.add(deleteTaskButton);
+        buttonPanel.add(exitButton);
+
+        buttons.clear();
+        buttons.add(addTaskButton);
+        buttons.add(listTaskButton);
+        buttons.add(editTaskButton);
+        buttons.add(deleteTaskButton);
+        buttons.add(exitButton);
+
+        // Map UP and DOWN keys
+        InputMap inputMap = buttonPanel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
+        ActionMap actionMap = buttonPanel.getActionMap();
+
+        inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0), "focusPrevious");
+        inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0), "focusNext");
+
+        actionMap.put("focusPrevious", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                selectedButtonIndex = (selectedButtonIndex - 1 + buttons.size()) % buttons.size();
+                updateButtonSelection();
+            }
+        });
+
+        actionMap.put("focusNext", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                selectedButtonIndex = (selectedButtonIndex + 1) % buttons.size();
+                updateButtonSelection();
+            }
+        });
 
         panel.add(buttonPanel, BorderLayout.CENTER);
-        panel.add(bottomPanel, BorderLayout.SOUTH);
-
         return panel;
     }
 
@@ -121,33 +164,24 @@ public class GraphicalMenuView {
         frame.repaint();
     }
 
-    private JButton createStyledButton(String text, Color hoverColor, Color borderColor, java.awt.event.ActionListener action) {
+    private JButton createStyledButton(String text, Color hoverColor, ActionListener action) {
         JButton button = new JButton(text);
 
-        Color backgroundColor = appController.isDarkMode() ? Color.DARK_GRAY : new Color(235, 235, 235);
-        Color foregroundColor = appController.isDarkMode() ? Color.WHITE : Color.BLACK;
+        // Ustawienia kolorów
+        Color defaultBackground = appController.isDarkMode() ? Color.DARK_GRAY : new Color(235, 235, 235);
+        Color defaultForeground = appController.isDarkMode() ? Color.WHITE : Color.BLACK;
 
-        button.setBackground(backgroundColor);
-        button.setForeground(foregroundColor);
+        button.setBackground(defaultBackground);
+        button.setForeground(defaultForeground);
         button.setFont(new Font("Arial", Font.BOLD, 16));
         button.setFocusPainted(false);
-        button.setBorder(BorderFactory.createLineBorder(borderColor, 2));
+        button.setBorder(BorderFactory.createLineBorder(hoverColor.darker(), 2));
         button.setContentAreaFilled(true);
         button.setOpaque(true);
 
-        button.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                button.setBackground(hoverColor);
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                button.setBackground(backgroundColor);
-            }
-        });
-
+        // Obsługa kliknięcia
         button.addActionListener(action);
+
         return button;
     }
 
@@ -161,6 +195,8 @@ public class GraphicalMenuView {
             Image scaledHoverIcon = hoverIcon.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH);
 
             exitButton.setIcon(new ImageIcon(scaledOriginalIcon));
+
+            // Obsługa myszy (hover)
             exitButton.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseEntered(MouseEvent e) {
@@ -172,13 +208,27 @@ public class GraphicalMenuView {
                     exitButton.setIcon(new ImageIcon(scaledOriginalIcon));
                 }
             });
+
+            // Obsługa klawiatury (focus)
+            exitButton.addFocusListener(new java.awt.event.FocusAdapter() {
+                @Override
+                public void focusGained(java.awt.event.FocusEvent e) {
+                    exitButton.setIcon(new ImageIcon(scaledHoverIcon));
+                }
+
+                @Override
+                public void focusLost(java.awt.event.FocusEvent e) {
+                    exitButton.setIcon(new ImageIcon(scaledOriginalIcon));
+                }
+            });
+
         } catch (Exception e) {
             Logger.log("Błąd ładowania ikony", "Nie udało się załadować ikon wyłączania");
         }
 
         exitButton.setToolTipText("Zamknij aplikację");
         exitButton.setPreferredSize(new Dimension(50, 50));
-        exitButton.setFocusPainted(false);
+        exitButton.setFocusPainted(true); // Dodaj możliwość focusa
         exitButton.setContentAreaFilled(false);
         exitButton.setBorderPainted(false);
         exitButton.addActionListener(e -> showExitConfirmation());
@@ -198,6 +248,15 @@ public class GraphicalMenuView {
             Logger.log("Zamknięcie aplikacji", "Aplikacja została zamknięta przez użytkownika");
             frame.dispose();
             System.exit(0);
+        }
+    }
+
+    private void updateButtonSelection() {
+        for (int i = 0; i < buttons.size(); i++) {
+            JButton button = buttons.get(i);
+            if (i == selectedButtonIndex && isKeyboardNavigationActive) {
+                button.requestFocusInWindow(); // Set focus
+            }
         }
     }
 }
