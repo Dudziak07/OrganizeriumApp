@@ -3,17 +3,18 @@ package controller;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonPrimitive;
+import controller.Logger;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
 
 public class AppController {
     private static final String CONFIG_FOLDER = "config";
     private static final String CONFIG_FILE = CONFIG_FOLDER + "/options.json";
 
     private boolean isDarkMode;
+    private boolean areAnimationsEnabled;
 
     public AppController() {
         // Wczytaj konfigurację z pliku
@@ -24,9 +25,18 @@ public class AppController {
         return isDarkMode;
     }
 
+    public boolean areAnimationsEnabled() {
+        return areAnimationsEnabled;
+    }
+
     public void toggleDarkMode() {
         isDarkMode = !isDarkMode;
         saveConfig("isDarkMode", Boolean.toString(isDarkMode));
+    }
+
+    public void toggleAnimations() {
+        areAnimationsEnabled = !areAnimationsEnabled;
+        saveConfig("areAnimationsEnabled", Boolean.toString(areAnimationsEnabled));
     }
 
     private void loadConfig() {
@@ -44,11 +54,8 @@ public class AppController {
 
             FileReader reader = new FileReader(file);
             JsonObject jsonObject = JsonParser.parseReader(reader).getAsJsonObject();
-            if (jsonObject.has("isDarkMode")) {
-                isDarkMode = jsonObject.get("isDarkMode").getAsBoolean();
-            } else {
-                createDefaultConfig();
-            }
+            isDarkMode = jsonObject.has("isDarkMode") && jsonObject.get("isDarkMode").getAsBoolean();
+            areAnimationsEnabled = jsonObject.has("areAnimationsEnabled") && jsonObject.get("areAnimationsEnabled").getAsBoolean();
             reader.close();
         } catch (Exception e) {
             Logger.log("Błąd konfiguracji", "Nie udało się wczytać pliku konfiguracyjnego: " + e.getMessage());
@@ -58,7 +65,6 @@ public class AppController {
 
     public void saveConfig(String key, String value) {
         try {
-            // Jeśli plik istnieje, wczytaj istniejący JSON
             JsonObject jsonObject;
             File file = new File(CONFIG_FILE);
             if (file.exists()) {
@@ -69,7 +75,6 @@ public class AppController {
                 jsonObject = new JsonObject();
             }
 
-            // Zaktualizuj dane i zapisz
             jsonObject.add(key, new JsonPrimitive(value));
             FileWriter writer = new FileWriter(CONFIG_FILE);
             writer.write(jsonObject.toString());
@@ -81,6 +86,8 @@ public class AppController {
 
     private void createDefaultConfig() {
         isDarkMode = true; // Domyślny tryb to ciemny
+        areAnimationsEnabled = true; // Domyślnie animacje są włączone
         saveConfig("isDarkMode", Boolean.toString(isDarkMode));
+        saveConfig("areAnimationsEnabled", Boolean.toString(areAnimationsEnabled));
     }
 }

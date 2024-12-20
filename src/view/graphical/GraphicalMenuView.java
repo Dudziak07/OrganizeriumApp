@@ -2,10 +2,7 @@ package view.graphical;
 
 import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatLightLaf;
-import controller.AppController;
-import controller.ImageController;
-import controller.Logger;
-import controller.TaskController;
+import controller.*;
 import view.textual.MainMenuView;
 
 import javax.swing.*;
@@ -43,7 +40,11 @@ public class GraphicalMenuView {
     }
 
     public void show() {
-        frame.setSize(800, 600);
+        frame.setSize(850, 600);
+
+        // Wyśrodkowanie okna na ekranie
+        frame.setLocationRelativeTo(null);
+
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         frame.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
@@ -70,6 +71,23 @@ public class GraphicalMenuView {
             switchTheme.setText(appController.isDarkMode() ? "Przełącz na tryb jasny" : "Przełącz na tryb ciemny");
             refreshView();
         });
+
+        JMenuItem toggleAnimations = new JMenuItem(appController.areAnimationsEnabled() ? "Wyłącz animacje" : "Włącz animacje");
+        toggleAnimations.addActionListener(e -> {
+            // Zmiana stanu animacji w AppController
+            appController.toggleAnimations();
+            toggleAnimations.setText(appController.areAnimationsEnabled() ? "Wyłącz animacje" : "Włącz animacje");
+            Logger.log("Opcje", appController.areAnimationsEnabled() ? "Animacje włączone" : "Animacje wyłączone");
+
+            // Zarządzanie animacjami przycisków
+            if (appController.areAnimationsEnabled()) {
+                enableAnimationsForButtons();
+            } else {
+                disableAnimationsForButtons();
+            }
+        });
+
+        menu.add(toggleAnimations);
 
         menu.add(switchToTextMode);
         menu.add(switchTheme);
@@ -108,11 +126,11 @@ public class GraphicalMenuView {
         JButton exitButton = createExitButton();
 
         // Add buttons to panel and list
-        buttonPanel.add(addTaskButton);
-        buttonPanel.add(listTaskButton);
-        buttonPanel.add(editTaskButton);
-        buttonPanel.add(deleteTaskButton);
-        buttonPanel.add(exitButton);
+        addButtonWithAnimation(buttonPanel, addTaskButton);
+        addButtonWithAnimation(buttonPanel, listTaskButton);
+        addButtonWithAnimation(buttonPanel, editTaskButton);
+        addButtonWithAnimation(buttonPanel, deleteTaskButton);
+        addButtonWithAnimation(buttonPanel, exitButton);
 
         buttons.clear();
         buttons.add(addTaskButton);
@@ -167,50 +185,81 @@ public class GraphicalMenuView {
     }
 
     private void refreshView() {
-        frame.getContentPane().removeAll();
-        mainPanel = createMainPanel();
-        frame.add(mainPanel);
-
-        // Zastosowanie tła dla trybu
+        // Zastosowanie tła dla aktualnego trybu
         Color backgroundColor = appController.isDarkMode() ? Color.DARK_GRAY : new Color(240, 240, 240);
         mainPanel.setBackground(backgroundColor);
         frame.getContentPane().setBackground(backgroundColor);
 
-        SwingUtilities.updateComponentTreeUI(frame);
-        frame.repaint();
+        // Odśwież tylko panel główny
+        mainPanel.revalidate();
+        mainPanel.repaint();
     }
 
     // Metoda do tworzenia stylizowanego przycisku
-    private JButton createStyledButton(String text, Color hoverColor, Color borderColor, java.awt.event.ActionListener action) {
+    private JButton createStyledButton(String text, Color hoverColor, Color pressedColor, ActionListener action) {
         JButton button = new JButton(text);
 
         // Kolory domyślne w zależności od trybu
-        Color defaultBackground = appController.isDarkMode() ? Color.DARK_GRAY : new Color(235, 235, 235); // Jasnoszary dla trybu jasnego
-        Color defaultForeground = appController.isDarkMode() ? Color.WHITE : Color.BLACK; // Czarny tekst w trybie jasnym
+        Color defaultBackground = appController.isDarkMode() ? Color.DARK_GRAY : new Color(235, 235, 235);
+        Color defaultForeground = appController.isDarkMode() ? Color.WHITE : Color.BLACK;
 
-        // Ustawienia stylu przycisku
+        // Ustawienia przycisku
         button.setBackground(defaultBackground);
         button.setForeground(defaultForeground);
         button.setFont(new Font("Arial", Font.BOLD, 16));
         button.setFocusPainted(false);
-        button.setBorder(BorderFactory.createLineBorder(borderColor, 2)); // Ramka
+        button.setBorder(BorderFactory.createLineBorder(hoverColor.darker(), 2));
         button.setContentAreaFilled(true);
         button.setOpaque(true);
 
-        // Obsługa hover
+        // Początkowy rozmiar przycisku
+        Dimension originalSize = button.getPreferredSize();
+
+        // Obsługa efektu hover
         button.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                button.setBackground(hoverColor);
+                if (appController.areAnimationsEnabled()) { // Tylko gdy animacje są włączone
+                    button.setBackground(hoverColor);
+
+                    // Powiększ przycisk
+                    button.setPreferredSize(new Dimension(
+                            (int) (originalSize.width * 1.1),
+                            (int) (originalSize.height * 1.1)
+                    ));
+                    button.setFont(button.getFont().deriveFont(18f)); // Powiększ czcionkę
+                    button.revalidate(); // Aktualizacja rozmiaru
+                    button.repaint(); // Odśwież wygląd
+                } else {
+                    button.setBackground(hoverColor); // Tylko podświetlenie bez animacji
+                }
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
+                if (appController.areAnimationsEnabled()) { // Tylko gdy animacje są włączone
+                    button.setPreferredSize(originalSize);
+                    button.setFont(button.getFont().deriveFont(16f)); // Przywróć czcionkę
+                    button.revalidate(); // Aktualizacja rozmiaru
+                    button.repaint(); // Odśwież wygląd
+                }
                 button.setBackground(defaultBackground);
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                button.setBackground(pressedColor); // Podświetlenie przy kliknięciu
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                button.setBackground(hoverColor); // Powrót do koloru hover
             }
         });
 
+        // Obsługa akcji
         button.addActionListener(action);
+
         return button;
     }
 
@@ -220,34 +269,63 @@ public class GraphicalMenuView {
             ImageIcon originalIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/icons/power_off.png")));
             ImageIcon hoverIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/icons/power_off_mouse.png")));
 
+            // Skalowanie ikon
             Image scaledOriginalIcon = originalIcon.getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH);
             Image scaledHoverIcon = hoverIcon.getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH);
+            Image scaledHoverIconLarge = hoverIcon.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH);
 
             exitButton.setIcon(new ImageIcon(scaledOriginalIcon));
+
+            // Ustawienia przycisku dla ograniczenia granic aktywnych
+            exitButton.setMargin(new Insets(0, 0, 0, 0)); // Brak marginesów
+            exitButton.setBorder(BorderFactory.createEmptyBorder()); // Brak obramowania
+            exitButton.setContentAreaFilled(false); // Brak wypełnienia tła
+            exitButton.setFocusPainted(false); // Brak efektu fokusu
+            exitButton.setPreferredSize(new Dimension(60, 60)); // Rozmiar zgodny z ikoną
 
             // Obsługa myszy (hover)
             exitButton.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseEntered(MouseEvent e) {
-                    exitButton.setIcon(new ImageIcon(scaledHoverIcon));
+                    if (appController.areAnimationsEnabled()) {
+                        exitButton.setIcon(new ImageIcon(scaledHoverIconLarge));
+                        exitButton.setPreferredSize(new Dimension(70, 70));
+                    } else {
+                        exitButton.setIcon(new ImageIcon(scaledHoverIcon));
+                    }
+                    exitButton.revalidate();
+                    exitButton.repaint();
                 }
 
                 @Override
                 public void mouseExited(MouseEvent e) {
                     exitButton.setIcon(new ImageIcon(scaledOriginalIcon));
+                    exitButton.setPreferredSize(new Dimension(60, 60));
+                    exitButton.revalidate();
+                    exitButton.repaint();
                 }
             });
 
             // Obsługa klawiatury (focus)
-            exitButton.addFocusListener(new java.awt.event.FocusAdapter() {
+            exitButton.addFocusListener(new FocusAdapter() {
                 @Override
-                public void focusGained(java.awt.event.FocusEvent e) {
-                    exitButton.setIcon(new ImageIcon(scaledHoverIcon));
+                public void focusGained(FocusEvent e) {
+                    if (appController.areAnimationsEnabled()) {
+                        exitButton.setIcon(new ImageIcon(scaledHoverIconLarge));
+                        exitButton.setPreferredSize(new Dimension(70, 70));
+                    } else {
+                        exitButton.setIcon(new ImageIcon(scaledHoverIcon));
+                    }
+                    exitButton.revalidate();
+                    exitButton.repaint();
                 }
 
                 @Override
-                public void focusLost(java.awt.event.FocusEvent e) {
+                public void focusLost(FocusEvent e) {
                     exitButton.setIcon(new ImageIcon(scaledOriginalIcon));
+                    exitButton.setPreferredSize(new Dimension(60, 60));
+                    exitButton.revalidate();
+                    exitButton.repaint();
                 }
             });
 
@@ -256,10 +334,6 @@ public class GraphicalMenuView {
         }
 
         exitButton.setToolTipText("Zamknij aplikację");
-        exitButton.setPreferredSize(new Dimension(50, 50));
-        exitButton.setFocusPainted(true); // Dodaj możliwość focusa
-        exitButton.setContentAreaFilled(false);
-        exitButton.setBorderPainted(false);
         exitButton.addActionListener(e -> showExitConfirmation());
 
         return exitButton;
@@ -287,5 +361,67 @@ public class GraphicalMenuView {
                 button.requestFocusInWindow(); // Set focus
             }
         }
+    }
+
+    private void addButtonWithAnimation(JPanel panel, JButton button) {
+        if (appController.areAnimationsEnabled()) {
+            button.setVisible(false); // Ukrycie na początku dla efektu animacji
+            panel.add(button);
+
+            Timer timer = new Timer(10, null);
+            final float[] opacity = {0.0f};
+
+            timer.addActionListener(e -> {
+                opacity[0] += 0.05f; // Stopniowe zwiększanie widoczności
+                if (opacity[0] > 1.0f) {
+                    opacity[0] = 1.0f; // Ograniczenie maksymalnej widoczności
+                    button.setVisible(true);
+                    timer.stop(); // Zatrzymanie timera
+                }
+                button.setBackground(new Color(
+                        button.getBackground().getRed(),
+                        button.getBackground().getGreen(),
+                        button.getBackground().getBlue(),
+                        (int) (opacity[0] * 255) // Ustawienie przezroczystości
+                ));
+            });
+
+            timer.start();
+        } else {
+            button.setVisible(true); // Natychmiastowe pojawienie się przycisku
+            panel.add(button);
+        }
+    }
+
+    private void refreshButtonAnimations() {
+        buttons.forEach(button -> {
+            if (appController.areAnimationsEnabled()) {
+                AnimationController.fadeIn(button); // Fade-in dla włączonych animacji
+            } else {
+                button.setOpaque(true); // Wyłączenie animacji
+                button.setBackground(button.getBackground()); // Przywrócenie koloru
+                button.setVisible(true); // Natychmiastowe pojawienie się
+            }
+        });
+        mainPanel.revalidate();
+        mainPanel.repaint();
+    }
+
+    private void enableAnimationsForButtons() {
+        buttons.forEach(button -> {
+            button.setVisible(false); // Ukryj przycisk przed animacją
+            AnimationController.scaleIn(button); // Włącz efekt skalowania
+        });
+    }
+
+    private void disableAnimationsForButtons() {
+        buttons.forEach(button -> {
+            button.setOpaque(true);
+            button.setBackground(button.getBackground());
+            button.setVisible(true); // Upewnij się, że są widoczne
+            button.setPreferredSize(button.getPreferredSize()); // Przywróć oryginalny rozmiar
+            button.revalidate(); // Odśwież układ
+            button.repaint(); // Odśwież przyciski
+        });
     }
 }
