@@ -4684,5 +4684,107 @@
     "time": "2024-12-20 22:21:59",
     "action": "Przełączenie motywu",
     "details": "Ustawiono tryb ciemny"
+  },
+  {
+    "id": 779,
+    "time": "2024-12-20 22:25:38",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 780,
+    "time": "2024-12-20 22:27:01",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb jasny"
+  },
+  {
+    "id": 781,
+    "time": "2024-12-20 22:27:13",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb ciemny"
+  },
+  {
+    "id": 782,
+    "time": "2024-12-20 22:27:33",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb jasny"
+  },
+  {
+    "id": 783,
+    "time": "2024-12-20 22:27:37",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb ciemny"
+  },
+  {
+    "id": 784,
+    "time": "2024-12-20 22:30:17",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 785,
+    "time": "2024-12-20 22:30:35",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb jasny"
+  },
+  {
+    "id": 786,
+    "time": "2024-12-20 22:31:04",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 787,
+    "time": "2024-12-20 22:31:09",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb ciemny"
+  },
+  {
+    "id": 788,
+    "time": "2024-12-20 23:15:49",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 789,
+    "time": "2024-12-20 23:16:02",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb jasny"
+  },
+  {
+    "id": 790,
+    "time": "2024-12-20 23:16:38",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb ciemny"
+  },
+  {
+    "id": 791,
+    "time": "2024-12-20 23:17:40",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 792,
+    "time": "2024-12-20 23:18:03",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 793,
+    "time": "2024-12-20 23:18:47",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 794,
+    "time": "2024-12-20 23:18:55",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb jasny"
+  },
+  {
+    "id": 795,
+    "time": "2024-12-20 23:19:01",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb ciemny"
   }
 ]

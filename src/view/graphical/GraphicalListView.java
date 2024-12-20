@@ -27,7 +27,7 @@ public class GraphicalListView {
     public void show() {
         // Tworzenie okna dialogowego
         JDialog dialog = new JDialog(parentFrame, "Lista zadań", true);
-        dialog.setSize(800, 500);
+        dialog.setSize(900, 500);
         dialog.setLayout(new BorderLayout());
         dialog.setLocationRelativeTo(parentFrame);
 
