@@ -4876,5 +4876,161 @@
     "time": "2024-12-21 00:12:15",
     "action": "Uruchomienie aplikacji",
     "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 811,
+    "time": "2024-12-21 00:18:54",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 812,
+    "time": "2024-12-21 00:19:31",
+    "action": "Dodano zadanie",
+    "details": "id:[61] (nic), Kategoria: , Priorytet: *bez priorytetu*, Termin: , Utworzone: 2024-12-21 00:19:31"
+  },
+  {
+    "id": 813,
+    "time": "2024-12-21 00:19:44",
+    "action": "Dodano zadanie",
+    "details": "id:[62] (xxxxxxxxxxx), Kategoria: , Priorytet: *bez priorytetu*, Termin: , Utworzone: 2024-12-21 00:19:44"
+  },
+  {
+    "id": 814,
+    "time": "2024-12-21 00:20:30",
+    "action": "Usunięto zadanie",
+    "details": "ID: 60, Nazwa: dupa"
+  },
+  {
+    "id": 815,
+    "time": "2024-12-21 00:20:52",
+    "action": "Dodano zadanie",
+    "details": "id:[63] (dupa), Kategoria: dupa, Priorytet: *bez priorytetu*, Termin: , Utworzone: 2024-12-21 00:20:52"
+  },
+  {
+    "id": 816,
+    "time": "2024-12-21 00:20:56",
+    "action": "Dodano zadanie",
+    "details": "id:[64] (dupa), Kategoria: , Priorytet: *bez priorytetu*, Termin: , Utworzone: 2024-12-21 00:20:56"
+  },
+  {
+    "id": 817,
+    "time": "2024-12-21 00:21:02",
+    "action": "Usunięto zadanie",
+    "details": "ID: 63, Nazwa: dupa"
+  },
+  {
+    "id": 818,
+    "time": "2024-12-21 00:21:30",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 819,
+    "time": "2024-12-21 00:21:53",
+    "action": "Przełączanie trybu",
+    "details": "Przełączono na tryb tekstowy"
+  },
+  {
+    "id": 820,
+    "time": "2024-12-21 00:22:05",
+    "action": "Przełączanie trybu",
+    "details": "Przełączono na tryb graficzny"
+  },
+  {
+    "id": 821,
+    "time": "2024-12-21 00:22:05",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 822,
+    "time": "2024-12-21 00:22:09",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb jasny"
+  },
+  {
+    "id": 823,
+    "time": "2024-12-21 00:22:56",
+    "action": "Przełączenie motywu",
+    "details": "Ustawiono tryb ciemny"
+  },
+  {
+    "id": 824,
+    "time": "2024-12-21 00:23:39",
+    "action": "Opcje",
+    "details": "Animacje wyłączone"
+  },
+  {
+    "id": 825,
+    "time": "2024-12-21 00:23:54",
+    "action": "Opcje",
+    "details": "Animacje włączone"
+  },
+  {
+    "id": 826,
+    "time": "2024-12-21 00:24:34",
+    "action": "Przełączanie trybu",
+    "details": "Przełączono na tryb tekstowy"
+  },
+  {
+    "id": 827,
+    "time": "2024-12-21 00:24:52",
+    "action": "Zamknięcie aplikacji",
+    "details": "Aplikacja została zamknięta z trybu tekstowego"
+  },
+  {
+    "id": 828,
+    "time": "2024-12-21 12:36:58",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 829,
+    "time": "2024-12-21 12:47:14",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 830,
+    "time": "2024-12-21 12:47:18",
+    "action": "Przełączanie trybu",
+    "details": "Przełączono na tryb tekstowy"
+  },
+  {
+    "id": 831,
+    "time": "2024-12-21 12:47:18",
+    "action": "Przełączanie trybu",
+    "details": "Przełączono na tryb tekstowy"
+  },
+  {
+    "id": 832,
+    "time": "2024-12-21 12:47:20",
+    "action": "Przełączanie trybu",
+    "details": "Przełączono na tryb graficzny"
+  },
+  {
+    "id": 833,
+    "time": "2024-12-21 12:47:20",
+    "action": "Przełączanie trybu",
+    "details": "Przełączono na tryb graficzny"
+  },
+  {
+    "id": 834,
+    "time": "2024-12-21 12:47:20",
+    "action": "Uruchomienie aplikacji",
+    "details": "Zainicjowano tryb graficzny"
+  },
+  {
+    "id": 835,
+    "time": "2024-12-21 12:47:22",
+    "action": "Opcje",
+    "details": "Animacje wyłączone"
+  },
+  {
+    "id": 836,
+    "time": "2024-12-21 12:47:23",
+    "action": "Opcje",
+    "details": "Animacje włączone"
   }
 ]

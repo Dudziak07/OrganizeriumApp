@@ -59,9 +59,11 @@ public class GraphicalMenuView {
         JMenuItem switchToTextMode = new JMenuItem("Przełącz na tryb tekstowy");
         switchToTextMode.addActionListener(e -> {
             Logger.log("Przełączanie trybu", "Przełączono na tryb tekstowy");
+
             frame.dispose(); // Zamknięcie okna graficznego
-            new Thread(() -> new MainMenuView(controller, appController).show()).start(); // Przekazanie obu argumentów
+            controller.switchToTextMode(appController); // Wywołanie metody w TaskController
         });
+
 
         JMenuItem switchTheme = new JMenuItem(appController.isDarkMode() ? "Przełącz na tryb jasny" : "Przełącz na tryb ciemny");
         switchTheme.addActionListener(e -> {
