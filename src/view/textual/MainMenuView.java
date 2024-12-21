@@ -61,16 +61,8 @@ public class MainMenuView {
     private void switchToGraphicalMode() {
         Logger.log("Przełączanie trybu", "Przełączono na tryb graficzny");
 
-        // Zapis trybu graficznego do pliku konfiguracyjnego
-        appController.saveConfig("mode", "graphical");
-
-        // Zamknięcie ekranu tekstowego
-        guiScreen.getScreen().stopScreen();
-
-        // Uruchomienie trybu graficznego z przekazaniem odpowiednich parametrów
-        new Thread(() -> {
-            new GraphicalMenuView(controller, appController).show();
-        }).start();
+        guiScreen.getScreen().stopScreen(); // Zatrzymanie ekranu tekstowego
+        controller.switchToGraphicalMode(appController); // Wywołanie metody w TaskController
     }
 
     // Metoda zamykająca aplikację

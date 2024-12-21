@@ -1,5 +1,6 @@
 package view.graphical;
 
+import controller.AppController;
 import controller.TaskController;
 import controller.ImageController;
 import model.Task;
@@ -15,16 +16,22 @@ import java.util.Objects;
 public class GraphicalListView {
     private final TaskController controller;
     private final JFrame parentFrame;
+    private final AppController appController;
 
-    public GraphicalListView(TaskController controller, JFrame parentFrame) {
+    public GraphicalListView(TaskController controller, JFrame parentFrame, AppController appController) {
         this.controller = controller;
         this.parentFrame = parentFrame;
+        this.appController = appController;
     }
 
     public void show() {
+        UIManager.put("OptionPane.yesButtonText", "Tak");
+        UIManager.put("OptionPane.noButtonText", "Nie");
+        UIManager.put("OptionPane.cancelButtonText", "Anuluj");
+
         // Tworzenie okna dialogowego
         JDialog dialog = new JDialog(parentFrame, "Lista zadań", true);
-        dialog.setSize(800, 500);
+        dialog.setSize(900, 500);
         dialog.setLayout(new BorderLayout());
         dialog.setLocationRelativeTo(parentFrame);
 
@@ -35,6 +42,10 @@ public class GraphicalListView {
 
         // Tworzenie tabeli i osadzenie jej w scroll panelu
         JTable taskTable = new JTable(tableModel);
+
+        // Ustawienie rendererów do kolorowania wierszy
+        taskTable.setDefaultRenderer(Object.class, new TaskTableCellRenderer(controller, appController));
+
         JScrollPane scrollPane = new JScrollPane(taskTable);
 
         // Obsługa menu kontekstowego (prawy przycisk)
@@ -165,6 +176,29 @@ public class GraphicalListView {
     }
 
     private void loadTasksToTable(DefaultTableModel tableModel, List<Task> tasks) {
+        // Sprawdź, czy istnieją różnice w danych
+        boolean isIdentical = true;
+        if (tableModel.getRowCount() == tasks.size()) {
+            for (int i = 0; i < tasks.size(); i++) {
+                Task task = tasks.get(i);
+                if (!Objects.equals(task.getId(), tableModel.getValueAt(i, 0)) ||
+                        !Objects.equals(task.getName(), tableModel.getValueAt(i, 1)) ||
+                        !Objects.equals(task.getCategory(), tableModel.getValueAt(i, 2)) ||
+                        !Objects.equals(task.getPriority(), tableModel.getValueAt(i, 3)) ||
+                        !Objects.equals(task.getDeadline(), tableModel.getValueAt(i, 4)) ||
+                        !Objects.equals(task.getCreationTime(), tableModel.getValueAt(i, 5))) {
+                    isIdentical = false;
+                    break;
+                }
+            }
+        } else {
+            isIdentical = false;
+        }
+
+        // Jeśli dane są takie same, nie odświeżaj
+        if (isIdentical) return;
+
+        // W przeciwnym razie odśwież całą tabelę
         tableModel.setRowCount(0);
         for (Task task : tasks) {
             tableModel.addRow(new Object[]{

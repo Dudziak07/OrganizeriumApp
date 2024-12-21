@@ -130,7 +130,7 @@
     "id": 48,
     "name": "kocham",
     "category": "milosc",
-    "deadline": "",
+    "deadline": "2024-12-22",
     "priority": "bardzo ważne",
     "creationTime": "2024-11-23 15:13:17"
   },
@@ -201,7 +201,7 @@
   {
     "id": 58,
     "name": "acv",
-    "category": "",
+    "category": "TEST",
     "deadline": "",
     "priority": "*bez priorytetu*",
     "creationTime": "2024-12-18 22:16:19"
@@ -213,5 +213,29 @@
     "deadline": "",
     "priority": "*bez priorytetu*",
     "creationTime": "2024-12-20 13:04:05"
+  },
+  {
+    "id": 61,
+    "name": "nic",
+    "category": "",
+    "deadline": "",
+    "priority": "*bez priorytetu*",
+    "creationTime": "2024-12-21 00:19:31"
+  },
+  {
+    "id": 62,
+    "name": "xxxxxxxxxxx",
+    "category": "",
+    "deadline": "",
+    "priority": "*bez priorytetu*",
+    "creationTime": "2024-12-21 00:19:44"
+  },
+  {
+    "id": 64,
+    "name": "dupa",
+    "category": "",
+    "deadline": "",
+    "priority": "*bez priorytetu*",
+    "creationTime": "2024-12-21 00:20:56"
   }
 ]

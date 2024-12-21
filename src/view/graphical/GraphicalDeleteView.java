@@ -17,6 +17,10 @@ public class GraphicalDeleteView {
     }
 
     public void show() {
+        UIManager.put("OptionPane.yesButtonText", "Tak");
+        UIManager.put("OptionPane.noButtonText", "Nie");
+        UIManager.put("OptionPane.cancelButtonText", "Anuluj");
+
         JDialog dialog = new JDialog(parentFrame, "Usuń zadanie", true);
         dialog.setSize(400, 300);
         dialog.setLayout(new GridLayout(5, 1, 10, 10));

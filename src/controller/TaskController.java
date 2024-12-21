@@ -5,6 +5,8 @@ import model.Task;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import view.graphical.GraphicalMenuView;
+import view.textual.MainMenuView;
 
 import java.io.*;
 import java.lang.reflect.Type;
@@ -255,5 +257,23 @@ public class TaskController {
 
         if (!ascending) comparator = comparator.reversed();
         return tasks.stream().sorted(comparator).collect(Collectors.toList());
+    }
+
+    public void switchToGraphicalMode(AppController appController) {
+        Logger.log("Przełączanie trybu", "Przełączono na tryb graficzny");
+
+        // Przełączenie do trybu graficznego
+        new Thread(() -> {
+            new GraphicalMenuView(this, appController).show();
+        }).start();
+    }
+
+    public void switchToTextMode(AppController appController) {
+        Logger.log("Przełączanie trybu", "Przełączono na tryb tekstowy");
+
+        // Przełączenie do trybu tekstowego
+        new Thread(() -> {
+            new MainMenuView(this, appController).show();
+        }).start();
     }
 }
